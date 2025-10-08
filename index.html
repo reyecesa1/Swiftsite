@@ -675,6 +675,14 @@
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
         textarea.form-control {
             min-height: 150px;
             resize: vertical;
@@ -1310,8 +1318,8 @@
                 </div>
                 
                 <div class="contact-form">
-                    <!-- Updated form with Formspree action -->
-                    <form id="contactForm" action="https://formspree.io/f/mjkelwlg" method="POST">
+                    <!-- Updated form with Formspree action and service dropdown -->
+                    <form id="contactForm" action="https://formspree.io/f/mwprnyaq" method="POST">
                         <div class="form-group">
                             <label for="name" class="form-label">Your Name</label>
                             <input type="text" id="name" name="name" class="form-control" required aria-required="true">
@@ -1323,8 +1331,17 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-control" required aria-required="true">
+                            <label for="service" class="form-label">Service Interested In</label>
+                            <select id="service" name="service" class="form-control" required aria-required="true">
+                                <option value="" disabled selected>Select a service...</option>
+                                <option value="Web Design">Web Design</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="E-Commerce">E-Commerce</option>
+                                <option value="SEO Optimization">SEO Optimization</option>
+                                <option value="Website Maintenance">Website Maintenance</option>
+                                <option value="Hosting Solutions">Hosting Solutions</option>
+                                <option value="Other">Other (please specify in message)</option>
+                            </select>
                         </div>
                         
                         <div class="form-group">
