@@ -1005,7 +1005,7 @@
                     </div>
                     <div class="stat">
                         <span class="stat-value">24/7</span>
-                        <span class="stat-label">Support</span>
+                        <span class="stat-label">Online Support</span>
                     </div>
                 </div>
             </div>
@@ -1298,11 +1298,11 @@
                     
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+                            <i class="fas fa-globe"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Call Us</h3>
-                            <p>(713) 555-1234</p>
+                            <h3>Online Support</h3>
+                            <p>24/7 Email & Chat Support</p>
                         </div>
                     </div>
                     
@@ -1312,7 +1312,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>Business Hours</h3>
-                            <p>Mon - Fri: 9am - 6pm</p>
+                            <p>Mon - Fri: 9am - 6pm CST</p>
                         </div>
                     </div>
                 </div>
@@ -1659,7 +1659,8 @@
                 });
             });
             
-            // Animate contact form
+            // FASTER CONTACT ANIMATIONS (0.4s instead of 0.8s/1s)
+            // Animate contact form - faster (0.4s)
             gsap.from('.contact-form', {
                 scrollTrigger: {
                     trigger: '.contact-form',
@@ -1667,13 +1668,13 @@
                     end: 'bottom 20%',
                     toggleActions: 'play none none reverse'
                 },
-                duration: 1,
+                duration: 0.4, // Changed from 1s to 0.4s
                 x: 50,
                 opacity: 0,
                 ease: 'power3.out'
             });
             
-            // Animate contact info
+            // Animate contact info - faster (0.4s)
             gsap.from('.contact-info .contact-item', {
                 scrollTrigger: {
                     trigger: '.contact-info',
@@ -1681,10 +1682,10 @@
                     end: 'bottom 20%',
                     toggleActions: 'play none none reverse'
                 },
-                duration: 0.8,
+                duration: 0.4, // Changed from 0.8s to 0.4s
                 x: -50,
                 opacity: 0,
-                stagger: 0.2,
+                stagger: 0.1, // Also reduced stagger for even faster appearance
                 ease: 'power3.out'
             });
         });
