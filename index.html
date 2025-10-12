@@ -320,48 +320,60 @@
             background: white;
             border-radius: var(--radius);
             box-shadow: var(--shadow-lg);
-            padding: 1rem;
+            padding: 1.25rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            animation: float 6s ease-in-out infinite;
-            max-width: 200px;
+            max-width: 220px;
+            transition: all 0.8s ease-in-out;
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            z-index: 2;
         }
 
-        /* Updated positions for four cards to prevent overlap */
+        .floating-card.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-card.featured {
+            z-index: 3;
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Updated positions for cards - more spread out */
         .floating-card:nth-child(1) {
-            top: 15%;
+            top: 10%;
             right: 5%;
-            animation-delay: 0s;
         }
 
         .floating-card:nth-child(2) {
-            top: 35%;
+            top: 25%;
             right: 25%;
-            animation-delay: 1.5s;
         }
 
         .floating-card:nth-child(3) {
-            bottom: 35%;
+            top: 50%;
             right: 10%;
-            animation-delay: 3s;
         }
 
         .floating-card:nth-child(4) {
-            bottom: 15%;
+            top: 65%;
             right: 30%;
-            animation-delay: 4.5s;
         }
 
         .card-icon {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             flex-shrink: 0;
+            font-size: 1.2rem;
         }
 
         .card-icon.primary {
@@ -380,9 +392,21 @@
             background-color: var(--success);
         }
 
+        .floating-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            color: var(--dark);
+        }
+
+        .floating-card p {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+            color: var(--gray);
+        }
+
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.02); }
         }
 
         /* Services Section */
@@ -1550,6 +1574,41 @@
                 goToSlide(currentSlide);
             }, 5000);
             
+            // Enhanced Floating cards system
+            const floatingCards = document.querySelectorAll('.floating-card');
+            let currentFeaturedCard = 0;
+            
+            // Initialize: show all cards with a featured one
+            function initializeCards() {
+                floatingCards.forEach((card, index) => {
+                    // Show all cards immediately
+                    card.classList.add('active');
+                    
+                    // Set the first card as featured initially
+                    if (index === 0) {
+                        card.classList.add('featured');
+                    }
+                });
+            }
+            
+            // Function to rotate featured card
+            function rotateFeaturedCard() {
+                // Remove featured class from current card
+                floatingCards[currentFeaturedCard].classList.remove('featured');
+                
+                // Move to next card
+                currentFeaturedCard = (currentFeaturedCard + 1) % floatingCards.length;
+                
+                // Add featured class to new card
+                floatingCards[currentFeaturedCard].classList.add('featured');
+            }
+            
+            // Initialize cards on page load
+            initializeCards();
+            
+            // Start rotation every 4 seconds (longer duration)
+            const cardRotationInterval = setInterval(rotateFeaturedCard, 4000);
+            
             // Form submission with Formspree
             const contactForm = document.getElementById('contactForm');
             
@@ -1639,15 +1698,6 @@
                 opacity: 0,
                 delay: 0.9,
                 ease: 'power3.out'
-            });
-            
-            gsap.from('.floating-card', {
-                duration: 1,
-                scale: 0,
-                opacity: 0,
-                stagger: 0.2,
-                delay: 1,
-                ease: 'back.out(1.7)'
             });
             
             // Animate service cards on scroll
