@@ -1609,7 +1609,7 @@
                 }
             });
             
-            // GSAP Animations
+            // GSAP Animations (removed contact section animations)
             gsap.from('.hero-content h1', {
                 duration: 1,
                 y: 50,
@@ -1682,35 +1682,1695 @@
                 });
             });
             
-            // FASTER CONTACT ANIMATIONS (0.4s instead of 0.8s/1s)
-            // Animate contact form - faster (0.4s)
-            gsap.from('.contact-form', {
-                scrollTrigger: {
-                    trigger: '.contact-form',
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                },
-                duration: 0.4, // Changed from 1s to 0.4s
-                x: 50,
+            // Removed contact section animations for better usability
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftSite - Custom Web Design & Development</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #06b6d4;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--gray);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover, .btn-secondary:focus {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover, .btn-accent:focus {
+            background-color: #0891b2;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after, .nav-links a:focus::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding-top: 80px; /* Added to prevent header overlap */
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: var(--gray);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .hero-visual {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 80%;
+            z-index: 1;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: float 6s ease-in-out infinite;
+            max-width: 200px;
+        }
+
+        /* Updated positions for four cards to prevent overlap */
+        .floating-card:nth-child(1) {
+            top: 15%;
+            right: 5%;
+            animation-delay: 0s;
+        }
+
+        .floating-card:nth-child(2) {
+            top: 35%;
+            right: 25%;
+            animation-delay: 1.5s;
+        }
+
+        .floating-card:nth-child(3) {
+            bottom: 35%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .floating-card:nth-child(4) {
+            bottom: 15%;
+            right: 30%;
+            animation-delay: 4.5s;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .card-icon.primary {
+            background-color: var(--primary);
+        }
+
+        .card-icon.accent {
+            background-color: var(--accent);
+        }
+
+        .card-icon.secondary {
+            background-color: var(--secondary);
+        }
+
+        .card-icon.success {
+            background-color: var(--success);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Services Section */
+        .services {
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+
+        .service-card:hover .service-icon,
+        .service-card:hover h3,
+        .service-card:hover p {
+            color: white;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .service-card p {
+            transition: var(--transition);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background-color: #f8fafc;
+        }
+
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            border: 1px solid var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-img {
+            height: 200px;
+            width: 100%;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background-color: var(--light-gray);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: white;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--gray);
+        }
+
+        .testimonial-content {
+            max-width: 600px;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .testimonial-role {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+        }
+
+        .contact .section-title h2,
+        .contact .section-title p {
+            color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Form status messages */
+        .form-success-message {
+            display: none;
+            background: #10b981;
+            color: white;
+            padding: 15px;
+            border-radius: var(--radius);
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .form-error-message {
+            display: none;
+            background: #ef4444;
+            color: white;
+            padding: 15px;
+            border-radius: var(--radius);
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .form-loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            position: relative;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus styles for better accessibility */
+        button:focus, a:focus, .form-control:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-visual {
+                display: none;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile Navigation - Updated from Swift 4 */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                right: 1.5rem;
+                width: 220px;
+                background: white;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 1rem 0;
+                box-shadow: var(--shadow-lg);
+                border-radius: var(--radius);
+                transform: translateY(-10px);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 0;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 0.75rem 1.5rem;
+                font-weight: 500;
+                transition: var(--transition);
+            }
+            
+            .nav-links a:hover {
+                background-color: var(--light);
+                color: var(--primary);
+            }
+            
+            .nav-actions {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-col h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            /* Center social icons on mobile */
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero-actions .btn {
+                width: 100%;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                SwiftSite
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary">Get Quote</a>
+            </div>
+            
+            <button class="mobile-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Custom Web Design & Development for Local Businesses</h1>
+                <p>We create stunning, responsive websites that drive results. Based in Houston, TX, we help businesses establish a powerful online presence.</p>
+                
+                <div class="hero-actions">
+                    <a href="#portfolio" class="btn btn-primary">View Our Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get Started</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">50+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">99%</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">24/7</span>
+                        <span class="stat-label">Online Support</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <!-- Updated floating cards with the requested content -->
+                <div class="floating-card">
+                    <div class="card-icon primary">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div>
+                        <h4>Website Building</h4>
+                        <p>Custom Solutions</p>
+                    </div>
+                </div>
+                
+                <div class="floating-card">
+                    <div class="card-icon accent">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <div>
+                        <h4>Integral Design</h4>
+                        <p>Complete Branding</p>
+                    </div>
+                </div>
+                
+                <div class="floating-card">
+                    <div class="card-icon secondary">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div>
+                        <h4>Database & Security</h4>
+                        <p>Protected Data</p>
+                    </div>
+                </div>
+                
+                <div class="floating-card">
+                    <div class="card-icon success">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div>
+                        <h4>Maintenance</h4>
+                        <p>Ongoing Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a comprehensive range of web services to help your business thrive online.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Web Design</h3>
+                    <p>Custom, visually appealing designs that reflect your brand and engage your audience.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Robust, scalable websites built with the latest technologies and best practices.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-Commerce</h3>
+                    <p>Complete online store solutions to sell your products and grow your business.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Optimization</h3>
+                    <p>Improve your search engine rankings and increase organic traffic to your website.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Website Maintenance</h3>
+                    <p>Ongoing support, updates, and security to keep your website running smoothly.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Hosting Solutions</h3>
+                    <p>Reliable, secure hosting with 99.9% uptime guarantee on Google Cloud infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Portfolio</h2>
+                <p>Check out some of our recent projects and see how we've helped businesses like yours.</p>
+            </div>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web-design">Web Design</button>
+                <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web-design">
+                    <div class="portfolio-img">
+                        <i class="fas fa-image fa-3x"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Houston Restaurant</h3>
+                        <p>A modern website for a local restaurant with online reservations and menu display.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Web Design</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="ecommerce">
+                    <div class="portfolio-img">
+                        <i class="fas fa-image fa-3x"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Local Boutique</h3>
+                        <p>E-commerce solution for a fashion boutique with integrated payment processing.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">E-Commerce</span>
+                            <span class="tag">Payment Gateway</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="branding">
+                    <div class="portfolio-img">
+                        <i class="fas fa-image fa-3x"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Tech Startup</h3>
+                        <p>Complete branding and website for a Houston-based technology startup.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Web Design</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="web-design">
+                    <div class="portfolio-img">
+                        <i class="fas fa-image fa-3x"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Medical Practice</h3>
+                        <p>Professional website for a healthcare provider with patient portal integration.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Web Design</span>
+                            <span class="tag">Healthcare</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="ecommerce">
+                    <div class="portfolio-img">
+                        <i class="fas fa-image fa-3x"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Home Services</h3>
+                        <p>Service-based website with booking system and customer management.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">E-Commerce</span>
+                            <span class="tag">Booking System</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="branding">
+                    <div class="portfolio-img">
+                        <i class="fas fa-image fa-3x"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Non-Profit Organization</h3>
+                        <p>Website redesign and branding for a local charitable organization.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Non-Profit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>See what our clients have to say about working with SwiftSite.</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"SwiftSite transformed our online presence completely. Our new website has increased our leads by 40% and the design perfectly represents our brand. The team was professional, responsive, and delivered on time."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Sarah Johnson</h4>
+                            <p class="testimonial-role">Owner, Houston Restaurant</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"The e-commerce website SwiftSite built for our boutique has exceeded our expectations. Sales have increased significantly, and the user experience is seamless. Their ongoing support has been invaluable."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Michael Torres</h4>
+                            <p class="testimonial-role">Manager, Local Boutique</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"As a tech startup, we needed a website that reflected our innovation and professionalism. SwiftSite delivered exactly that. The site is fast, modern, and has helped us attract investors and customers alike."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Jennifer Lee</h4>
+                            <p class="testimonial-role">CEO, Tech Startup</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-nav">
+                    <div class="slider-dot active" data-slide="0"></div>
+                    <div class="slider-dot" data-slide="1"></div>
+                    <div class="slider-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your project? Contact us today for a free consultation and quote.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Our Location</h3>
+                            <p>Houston, Texas</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>swiftsiteonline@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Online Support</h3>
+                            <p>24/7 Email & Chat Support</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Business Hours</h3>
+                            <p>Mon - Fri: 9am - 6pm CST</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <!-- Updated form with Formspree action and service dropdown -->
+                    <form id="contactForm" action="https://formspree.io/f/mwprnyaq" method="POST">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service" class="form-label">Service Interested In</label>
+                            <select id="service" name="service" class="form-control" required aria-required="true">
+                                <option value="" disabled selected>Select a service...</option>
+                                <option value="Web Design">Web Design</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="E-Commerce">E-Commerce</option>
+                                <option value="SEO Optimization">SEO Optimization</option>
+                                <option value="Website Maintenance">Website Maintenance</option>
+                                <option value="Hosting Solutions">Hosting Solutions</option>
+                                <option value="Other">Other (please specify in message)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" required aria-required="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                        
+                        <!-- Form status messages -->
+                        <div class="form-success-message" id="formSuccess">
+                            <i class="fas fa-check-circle"></i> Thank you! Your message has been sent.
+                        </div>
+                        <div class="form-error-message" id="formError">
+                            <i class="fas fa-exclamation-circle"></i> Sorry, there was an error sending your message. Please try again.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>SwiftSite</h3>
+                    <p>Custom web design and development services for businesses in Houston, TX and beyond.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">E-Commerce</a></li>
+                        <li><a href="#">SEO Optimization</a></li>
+                        <li><a href="#">Website Maintenance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SwiftSite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Element -->
+    <div class="notification" id="notification">
+        Message sent successfully!
+    </div>
+
+    <script>
+        // Initialize GSAP animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile navigation toggle - Updated from Swift 4
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const navLinksItems = document.querySelectorAll('.nav-links a');
+            
+            // Toggle mobile menu
+            mobileToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                // Toggle between hamburger and close icon
+                const icon = this.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when a link is clicked
+            navLinksItems.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    mobileToggle.querySelector('i').classList.remove('fa-times');
+                    mobileToggle.querySelector('i').classList.add('fa-bars');
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Portfolio filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Testimonial slider
+            const sliderTrack = document.querySelector('.testimonial-track');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            let currentSlide = 0;
+            
+            function goToSlide(index) {
+                sliderTrack.style.transform = `translateX(-${index * 100}%)`;
+                
+                // Update dots
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index].classList.add('active');
+                
+                currentSlide = index;
+            }
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const slideIndex = parseInt(this.getAttribute('data-slide'));
+                    goToSlide(slideIndex);
+                });
+            });
+            
+            // Auto slide
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                goToSlide(currentSlide);
+            }, 5000);
+            
+            // Form submission with Formspree
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                this.classList.add('form-loading');
+                
+                try {
+                    // Submit form to Formspree
+                    const response = await fetch(this.action, {
+                        method: this.method,
+                        body: new FormData(this),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Show success message
+                        document.getElementById('formSuccess').style.display = 'block';
+                        document.getElementById('formError').style.display = 'none';
+                        
+                        // Reset form
+                        this.reset();
+                        
+                        // Also show the notification
+                        const notification = document.getElementById('notification');
+                        notification.textContent = 'Message sent successfully!';
+                        notification.classList.add('show');
+                        
+                        // Hide notification after 3 seconds
+                        setTimeout(() => {
+                            notification.classList.remove('show');
+                        }, 3000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    // Show error message
+                    document.getElementById('formError').style.display = 'block';
+                    document.getElementById('formSuccess').style.display = 'none';
+                    
+                    // Also show the notification with error
+                    const notification = document.getElementById('notification');
+                    notification.textContent = 'Error sending message. Please try again.';
+                    notification.classList.add('show');
+                    
+                    // Hide notification after 3 seconds
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                    }, 3000);
+                } finally {
+                    // Remove loading state
+                    this.classList.remove('form-loading');
+                }
+            });
+            
+            // GSAP Animations (removed contact section animations)
+            gsap.from('.hero-content h1', {
+                duration: 1,
+                y: 50,
                 opacity: 0,
                 ease: 'power3.out'
             });
             
-            // Animate contact info - faster (0.4s)
-            gsap.from('.contact-info .contact-item', {
-                scrollTrigger: {
-                    trigger: '.contact-info',
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                },
-                duration: 0.4, // Changed from 0.8s to 0.4s
-                x: -50,
+            gsap.from('.hero-content p', {
+                duration: 1,
+                y: 30,
                 opacity: 0,
-                stagger: 0.1, // Also reduced stagger for even faster appearance
+                delay: 0.3,
                 ease: 'power3.out'
             });
+            
+            gsap.from('.hero-actions', {
+                duration: 1,
+                y: 30,
+                opacity: 0,
+                delay: 0.6,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.hero-stats', {
+                duration: 1,
+                y: 30,
+                opacity: 0,
+                delay: 0.9,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.floating-card', {
+                duration: 1,
+                scale: 0,
+                opacity: 0,
+                stagger: 0.2,
+                delay: 1,
+                ease: 'back.out(1.7)'
+            });
+            
+            // Animate service cards on scroll
+            gsap.utils.toArray('.service-card').forEach(card => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 80%',
+                        end: 'bottom 20%',
+                        toggleActions: 'play none none reverse'
+                    },
+                    duration: 0.8,
+                    y: 50,
+                    opacity: 0,
+                    ease: 'power3.out'
+                });
+            });
+            
+            // Animate portfolio items on scroll
+            gsap.utils.toArray('.portfolio-item').forEach(item => {
+                gsap.from(item, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 80%',
+                        end: 'bottom 20%',
+                        toggleActions: 'play none none reverse'
+                    },
+                    duration: 0.8,
+                    y: 50,
+                    opacity: 0,
+                    ease: 'power3.out'
+                });
+            });
+            
+            // Removed contact section animations for better usability
         });
     </script>
 </body>
