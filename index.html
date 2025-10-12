@@ -325,24 +325,32 @@
             align-items: center;
             gap: 0.75rem;
             animation: float 6s ease-in-out infinite;
+            max-width: 200px;
         }
 
+        /* Updated positions for four cards to prevent overlap */
         .floating-card:nth-child(1) {
-            top: 20%;
-            right: 10%;
+            top: 15%;
+            right: 5%;
             animation-delay: 0s;
         }
 
         .floating-card:nth-child(2) {
-            top: 40%;
-            right: 30%;
-            animation-delay: 2s;
+            top: 35%;
+            right: 25%;
+            animation-delay: 1.5s;
         }
 
         .floating-card:nth-child(3) {
-            bottom: 30%;
-            right: 15%;
-            animation-delay: 4s;
+            bottom: 35%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .floating-card:nth-child(4) {
+            bottom: 15%;
+            right: 30%;
+            animation-delay: 4.5s;
         }
 
         .card-icon {
@@ -366,6 +374,10 @@
 
         .card-icon.secondary {
             background-color: var(--secondary);
+        }
+
+        .card-icon.success {
+            background-color: var(--success);
         }
 
         @keyframes float {
@@ -1011,33 +1023,44 @@
             </div>
             
             <div class="hero-visual">
+                <!-- Updated floating cards with the requested content -->
                 <div class="floating-card">
                     <div class="card-icon primary">
-                        <i class="fas fa-mobile-alt"></i>
+                        <i class="fas fa-code"></i>
                     </div>
                     <div>
-                        <h4>Mobile First</h4>
-                        <p>Responsive Design</p>
+                        <h4>Website Building</h4>
+                        <p>Custom Solutions</p>
                     </div>
                 </div>
                 
                 <div class="floating-card">
                     <div class="card-icon accent">
-                        <i class="fas fa-rocket"></i>
+                        <i class="fas fa-pencil-ruler"></i>
                     </div>
                     <div>
-                        <h4>Fast Loading</h4>
-                        <p>Optimized Performance</p>
+                        <h4>Integral Design</h4>
+                        <p>Complete Branding</p>
                     </div>
                 </div>
                 
                 <div class="floating-card">
                     <div class="card-icon secondary">
-                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-database"></i>
                     </div>
                     <div>
-                        <h4>Secure</h4>
+                        <h4>Database & Security</h4>
                         <p>Protected Data</p>
+                    </div>
+                </div>
+                
+                <div class="floating-card">
+                    <div class="card-icon success">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div>
+                        <h4>Maintenance</h4>
+                        <p>Ongoing Support</p>
                     </div>
                 </div>
             </div>
