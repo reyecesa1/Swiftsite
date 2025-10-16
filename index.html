@@ -532,6 +532,18 @@
             align-items: center;
             justify-content: center;
             color: var(--gray);
+            overflow: hidden;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.05);
         }
 
         .portfolio-content {
@@ -555,6 +567,18 @@
             border-radius: 50px;
             font-size: 0.8rem;
             color: var(--gray);
+        }
+
+        .portfolio-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .portfolio-link:hover {
+            color: var(--primary-dark);
         }
 
         /* Testimonials Section */
@@ -1032,7 +1056,7 @@
                 
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-value">5+</span>
+                        <span class="stat-value">8+</span>
                         <span class="stat-label">Projects Completed</span>
                     </div>
                     <div class="stat">
@@ -1167,6 +1191,56 @@
             </div>
             
             <div class="portfolio-grid">
+                <!-- New portfolio items -->
+                <div class="portfolio-item" data-category="web-design">
+                    <div class="portfolio-img">
+                        <img src="medina.png" alt="Medina Tire Service Website">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Medina Tire Service</h3>
+                        <p>A responsive website for a tire service company in Houston with service listings and contact information.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Web Design</span>
+                            <span class="tag">Responsive</span>
+                            <span class="tag">Local Business</span>
+                        </div>
+                        <a href="https://medinatireservice-website.vercel.app" target="_blank" class="portfolio-link">View Website →</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="web-design">
+                    <div class="portfolio-img">
+                        <img src="nati-nails-placeholder.jpg" alt="Nati Nails Website">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Nati Nails</h3>
+                        <p>A sleek website for a nail salon with service listings, booking information, and gallery showcase.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Web Design</span>
+                            <span class="tag">Beauty Industry</span>
+                            <span class="tag">Service Booking</span>
+                        </div>
+                        <a href="https://natinails.vercel.app/" target="_blank" class="portfolio-link">View Website →</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="ecommerce">
+                    <div class="portfolio-img">
+                        <img src="artisan.png" alt="Artisan Gems Website">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Artisan Gems</h3>
+                        <p>An elegant e-commerce website for a jewelry store in The Woodlands, TX with product catalog and secure checkout.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">E-Commerce</span>
+                            <span class="tag">Jewelry</span>
+                            <span class="tag">Payment Gateway</span>
+                        </div>
+                        <a href="https://artisan-gems-the-woodlands-tx.vercel.app/" target="_blank" class="portfolio-link">View Website →</a>
+                    </div>
+                </div>
+                
+                <!-- Existing portfolio items -->
                 <div class="portfolio-item" data-category="web-design">
                     <div class="portfolio-img">
                         <i class="fas fa-image fa-3x"></i>
@@ -1205,48 +1279,6 @@
                         <div class="portfolio-tags">
                             <span class="tag">Branding</span>
                             <span class="tag">Web Design</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="web-design">
-                    <div class="portfolio-img">
-                        <i class="fas fa-image fa-3x"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Medical Practice</h3>
-                        <p>Professional website for a healthcare provider with patient portal integration.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Web Design</span>
-                            <span class="tag">Healthcare</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="ecommerce">
-                    <div class="portfolio-img">
-                        <i class="fas fa-image fa-3x"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Home Services</h3>
-                        <p>Service-based website with booking system and customer management.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">E-Commerce</span>
-                            <span class="tag">Booking System</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="branding">
-                    <div class="portfolio-img">
-                        <i class="fas fa-image fa-3x"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Non-Profit Organization</h3>
-                        <p>Website redesign and branding for a local charitable organization.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Branding</span>
-                            <span class="tag">Non-Profit</span>
                         </div>
                     </div>
                 </div>
