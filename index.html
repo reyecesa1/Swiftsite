@@ -143,6 +143,96 @@
             box-shadow: var(--shadow-lg);
         }
 
+        /* Header - UPDATED WITH INVERTED COLORS */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--primary); /* Changed from white to primary blue */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white; /* Changed from primary blue to white */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            color: white; /* Changed from dark to white */
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white; /* Changed from primary blue to white */
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after, .nav-links a:focus::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Updated header button to be inverted */
+        .btn-header {
+            background-color: white;
+            color: var(--primary);
+            border: 1px solid white;
+        }
+
+        .btn-header:hover, .btn-header:focus {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: white; /* Changed from dark to white */
+            cursor: pointer;
+            z-index: 1001;
+        }
+
         .section {
             padding: 5rem 0;
         }
@@ -173,81 +263,6 @@
         .section-title p {
             max-width: 600px;
             margin: 0 auto;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-
-        header.scrolled {
-            padding: 0.5rem 0;
-            box-shadow: var(--shadow);
-        }
-
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.5rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after, .nav-links a:focus::after {
-            width: 100%;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
-            cursor: pointer;
-            z-index: 1001;
         }
 
         /* Hero Section */
@@ -920,7 +935,7 @@
             }
         }
 
-        /* Mobile Navigation - Updated from Swift 4 */
+        /* Mobile Navigation - Updated with inverted colors */
         @media (max-width: 768px) {
             .mobile-toggle {
                 display: block;
@@ -931,7 +946,7 @@
                 top: 100%;
                 right: 1.5rem;
                 width: 220px;
-                background: white;
+                background: var(--primary); /* Changed from white to primary blue */
                 flex-direction: column;
                 align-items: stretch;
                 padding: 1rem 0;
@@ -959,11 +974,12 @@
                 padding: 0.75rem 1.5rem;
                 font-weight: 500;
                 transition: var(--transition);
+                color: white; /* Changed from dark to white */
             }
             
             .nav-links a:hover {
-                background-color: var(--light);
-                color: var(--primary);
+                background-color: rgba(255, 255, 255, 0.1); /* Changed from var(--light) to white with transparency */
+                color: white;
             }
             
             .nav-actions {
@@ -1033,7 +1049,7 @@
             </nav>
             
             <div class="nav-actions">
-                <a href="#contact" class="btn btn-primary">Get Quote</a>
+                <a href="#contact" class="btn btn-header">Get Quote</a> <!-- Changed to btn-header -->
             </div>
             
             <button class="mobile-toggle" aria-label="Toggle navigation">
