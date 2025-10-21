@@ -3,839 +3,867 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cesar Reyes - Marketing & AI Professional</title>
-    <meta name="description" content="Marketing & AI Professional with expertise in AI model training, evaluation, and prompt engineering. BBA in Marketing from Sam Houston State University.">
-    <meta name="keywords" content="Marketing, AI Professional, Prompt Engineering, Data Analysis, Python, Tableau, Salesforce">
-    <meta name="author" content="Cesar Reyes">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://reycesa1.github.io/">
-    <meta property="og:title" content="Cesar Reyes - Marketing & AI Professional">
-    <meta property="og:description" content="Marketing & AI Professional with expertise in AI model training, evaluation, and prompt engineering.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/reyecesa1/CR-About-Me/main/profile.jpg">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://reycesa1.github.io/">
-    <meta property="twitter:title" content="Cesar Reyes - Marketing & AI Professional">
-    <meta property="twitter:description" content="Marketing & AI Professional with expertise in AI model training, evaluation, and prompt engineering.">
-    <meta property="twitter:image" content="https://raw.githubusercontent.com/reyecesa1/CR-About-Me/main/profile.jpg">
-    
+    <title>SwiftSite - Custom Web Design & Development</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <style>
         :root {
             --primary: #2563eb;
-            --primary-dark: #1e40af;
+            --primary-dark: #1d4ed8;
             --secondary: #7c3aed;
-            --accent: #ec4899;
+            --accent: #06b6d4;
             --light: #f8fafc;
-            --dark: #0f172a;
-            --text: #334155;
-            --text-light: #64748b;
-            --card-bg: #ffffff;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
         }
 
-        .dark-mode {
-            --light: #0f172a;
-            --dark: #f1f5f9;
-            --text: #cbd5e1;
-            --text-light: #94a3b8;
-            --card-bg: #1e293b;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--text);
+            color: var(--dark);
             background-color: var(--light);
-            scroll-behavior: smooth;
-            transition: var(--transition);
+            overflow-x: hidden;
         }
-        
-        a {
-            text-decoration: none;
-            color: var(--dark);
-            transition: var(--transition);
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
         }
-        
-        a:hover {
-            color: var(--primary);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 100px 0;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        h1, h2, h3, h4 {
-            margin-bottom: 15px;
-            color: var(--dark);
-            font-weight: 700;
-        }
-        
+
         h1 {
             font-size: 3.5rem;
-            line-height: 1.2;
+            font-weight: 700;
         }
-        
+
         h2 {
             font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
         }
-        
-        h2:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 2px;
+
+        h3 {
+            font-size: 1.8rem;
         }
-        
+
         p {
-            margin-bottom: 15px;
-            color: var(--text);
-            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: var(--gray);
         }
-        
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 14px 32px;
-            background: var(--primary);
-            color: white;
-            border-radius: 8px;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
             transition: var(--transition);
             border: none;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            box-shadow: var(--shadow);
+            outline: none;
+            font-size: 1rem;
+            gap: 0.5rem;
         }
-        
-        .btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .btn i {
-            margin-right: 8px;
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background: var(--primary);
+
+        .btn-primary {
+            background-color: var(--primary);
             color: white;
         }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 70px;
+
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
-        
-        .section-title h2:after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        /* Header styles */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: var(--transition);
-            padding: 10px 0;
-        }
-        
-        .dark-mode header {
-            background: rgba(30, 41, 59, 0.95);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
+
+        .btn-secondary {
+            background-color: transparent;
             color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover, .btn-secondary:focus {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover, .btn-accent:focus {
+            background-color: #0891b2;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Header - UPDATED WITH INVERTED COLORS */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--primary); /* Changed from white to primary blue */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
         }
-        
-        .logo span {
-            color: var(--dark);
-        }
-        
-        .nav-container {
+
+        .logo {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: whitesmoke; /* Changed from primary blue to white */
+            cursor: pointer;
         }
-        
-        .nav-menu {
+
+        .nav-links {
             display: flex;
-            list-style: none;
-            position: relative;
-            margin-right: 10px;
+            gap: 2rem;
         }
-        
-        .nav-item {
-            margin-left: 15px;
-            position: relative;
-        }
-        
-        .nav-link {
-            color: var(--text);
+
+        .nav-links a {
             font-weight: 500;
             position: relative;
-            cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 6px;
-            transition: var(--transition);
-            font-size: 15px;
+            color: whitesmoke; /* Changed from dark to white */
         }
-        
-        .nav-link:hover {
-            background: rgba(37, 99, 235, 0.1);
-        }
-        
-        .nav-link:after {
+
+        .nav-links a::after {
             content: '';
             position: absolute;
             bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary);
+            background-color: whitesmoke; /* Changed from primary blue to white */
             transition: var(--transition);
         }
-        
-        .nav-link:hover:after {
+
+        .nav-links a:hover::after, .nav-links a:focus::after {
             width: 100%;
         }
-        
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--card-bg);
-            box-shadow: var(--shadow-hover);
-            border-radius: 8px;
-            padding: 10px 0;
-            min-width: 200px;
-            display: none;
-            z-index: 1000;
-            margin-top: 10px;
-        }
-        
-        .dropdown-item {
-            display: block;
-            padding: 10px 20px;
-            color: var(--text);
-            transition: var(--transition);
-        }
-        
-        .dropdown-item:hover {
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--primary);
-        }
-        
-        .nav-item:hover .dropdown {
-            display: block;
-        }
-        
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--text);
-            cursor: pointer;
-            font-size: 20px;
-            padding: 8px;
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-        
-        .theme-toggle:hover {
-            background: rgba(0, 0, 0, 0.05);
-        }
-        
-        .dark-mode .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Mobile menu styles */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 24px;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 6px;
-            transition: var(--transition);
-        }
-        
-        .mobile-menu-btn:hover {
-            background: rgba(0, 0, 0, 0.05);
-        }
-        
-        .dark-mode .mobile-menu-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Hero section with video background */
-        .hero {
-            padding-top: 160px;
-            padding-bottom: 120px;
-            position: relative;
-            overflow: hidden;
-            height: 100vh;
+
+        .nav-actions {
             display: flex;
             align-items: center;
+            gap: 1rem;
         }
-        
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
+
+        /* Updated header button to be inverted */
+        .btn-header {
+            background-color: whitesmoke;
+            color: var(--primary);
+            border: 1px solid white;
         }
-        
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.6);
-            z-index: -1;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+
+        .btn-header:hover, .btn-header:focus {
+            background-color: transparent;
             color: white;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
-        
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .highlight {
-            color: var(--primary);
-            font-weight: 700;
-        }
-        
-        .highlight-accent {
-            color: var(--accent);
-            font-weight: 700;
-        }
-        
-        /* About section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-        
-        .about-text {
-            padding-right: 20px;
-        }
-        
-        .about-image {
-            text-align: center;
-            position: relative;
-        }
-        
-        /* FIXED PROFILE IMAGE STYLES */
-        .profile-img {
-            width: 100%;
-            max-width: 380px;
-            height: 380px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 40px;
-            border: 5px solid transparent;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            padding: 5px;
-            box-sizing: border-box;
-        }
-        
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 15px;
-            transition: transform 0.5s ease;
-        }
-        
-        .profile-img:hover img {
-            transform: scale(1.05);
-        }
-        
-        .education-box {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            margin-top: 40px;
-            transition: var(--transition);
-        }
-        
-        .education-box:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .education-box h3 {
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
             font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary);
+            color: white; /* Changed from dark to white */
+            cursor: pointer;
+            z-index: 1001;
         }
-        
-        /* Experience section */
-        .experience {
-            background: var(--light);
+
+        .section {
+            padding: 5rem 0;
         }
-        
-        .timeline {
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
             position: relative;
-            max-width: 900px;
-            margin: 0 auto;
+            display: inline-block;
+            margin-bottom: 1rem;
         }
-        
-        .timeline::after {
+
+        .section-title h2::after {
             content: '';
             position: absolute;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
-            top: 0;
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
-            margin-left: -2px;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
             border-radius: 2px;
         }
-        
-        .timeline-item {
-            padding: 20px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
+
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto;
         }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            padding-right: 70px;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: 70px;
-        }
-        
-        .timeline-content {
-            padding: 30px;
-            background: var(--card-bg);
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .timeline-date {
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 10px;
-            display: block;
-        }
-        
-        /* Skills section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        
-        .skill-category {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .skill-list {
-            list-style: none;
-        }
-        
-        .skill-list li {
-            margin-bottom: 12px;
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-        
-        .dark-mode .skill-list li {
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .skill-list i {
-            color: var(--primary);
-            margin-right: 12px;
-            font-size: 18px;
-        }
-        
-        /* Certifications section */
-        .certifications {
-            background: var(--light);
-        }
-        
-        .certs-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .cert-category {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .cert-category:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .cert-category h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary);
-        }
-        
-        .cert-list {
-            list-style: none;
-        }
-        
-        .cert-list li {
-            margin-bottom: 15px;
-            padding: 12px;
-            background: var(--light);
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-        
-        .dark-mode .cert-list li {
-            background: rgba(0, 0, 0, 0.1);
-        }
-        
-        .cert-list li:hover {
-            background: rgba(37, 99, 235, 0.1);
-        }
-        
-        /* Projects section */
-        .projects {
-            background: var(--light);
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 30px;
-        }
-        
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
             position: relative;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-        
-        .project-content {
-            padding: 25px;
-        }
-        
-        .project-image {
-            height: 200px;
             overflow: hidden;
-            position: relative;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding-top: 80px; /* Added to prevent header overlap */
         }
-        
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
         }
-        
-        .project-card:hover .project-image img {
-            transform: scale(1.05);
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            font-size: 3.5rem;
+            line-height: 1.1;
         }
-        
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: var(--gray);
+        }
+
+        .hero-actions {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
-        
-        .project-card:hover .project-overlay {
-            opacity: 1;
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
         }
-        
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            padding: 12px 24px;
-            background: var(--primary);
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-        
-        .project-link:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-        }
-        
-        .project-link i {
-            margin-right: 8px;
-        }
-        
-        /* Contact section */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-        
-        .contact-info {
+
+        .stat {
             display: flex;
             flex-direction: column;
-            gap: 25px;
         }
-        
-        .contact-form {
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
         }
-        
-        .contact-method {
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .hero-visual {
+            position: absolute;
+            right: 0;
+            top: 60%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 90%;
+            z-index: 1;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: whitesmoke;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            padding: 1.99rem;
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            gap: 0.75rem;
+            max-width: 220px;
+            transition: all 0.8s ease-in-out;
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            z-index: 2;
         }
-        
-        .contact-method i {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
+
+        .floating-card.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-card.featured {
+            z-index: 3;
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Updated positions for cards - more spread out */
+        .floating-card:nth-child(1) {
+            top: 10%;
+            right: 5%;
+        }
+
+        .floating-card:nth-child(2) {
+            top: 25%;
+            right: 25%;
+        }
+
+        .floating-card:nth-child(3) {
+            top: 50%;
+            right: 10%;
+        }
+
+        .floating-card:nth-child(4) {
+            top: 65%;
+            right: 30%;
+        }
+
+        .card-icon {
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            font-size: 20px;
+            color: white;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .card-icon.primary {
+            background-color: var(--primary);
+        }
+
+        .card-icon.accent {
+            background-color: var(--accent);
+        }
+
+        .card-icon.secondary {
+            background-color: var(--secondary);
+        }
+
+        .card-icon.success {
+            background-color: var(--success);
+        }
+
+        .floating-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            color: var(--dark);
+        }
+
+        .floating-card p {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+            color: var(--gray);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.02); }
+        }
+
+        /* Services Section */
+        .services {
+            background-color: whitesmoke;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: whitesmoke;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+
+        .service-card:hover .service-icon,
+        .service-card:hover h3,
+        .service-card:hover p {
+            color: white;
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
             transition: var(--transition);
         }
-        
-        .contact-method:hover i {
-            background: var(--accent);
-            transform: scale(1.1);
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            transition: var(--transition);
         }
-        
-        .form-group {
-            margin-bottom: 20px;
+
+        .service-card p {
+            transition: var(--transition);
         }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
+
+        /* Portfolio Section */
+        .portfolio {
+            background-color: whitesmoke;
+        }
+
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            background: white;
+            border: 1px solid var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            background: whitesmoke;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-img {
+            height: 200px;
+            width: 100%;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            overflow: hidden;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background-color: var(--light-gray);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .portfolio-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .portfolio-link:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: white;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--gray);
+        }
+
+        .testimonial-content {
+            max-width: 600px;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
             font-weight: 600;
             color: var(--dark);
         }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            font-family: inherit;
-            background: var(--light);
-            color: var(--text);
-            transition: var(--transition);
+
+        .testimonial-role {
+            color: var(--gray);
+            font-size: 0.9rem;
         }
-        
-        .dark-mode .form-group input,
-        .dark-mode .form-group textarea {
-            border: 2px solid #334155;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-        }
-        
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background: #0f172a;
-            color: white;
-            padding: 60px 0 30px;
-            text-align: center;
-        }
-        
-        .dark-mode footer {
-            background: #0f172a;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .social-links {
+
+        .slider-nav {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
+            gap: 1rem;
+            margin-top: 2rem;
         }
-        
-        .social-links a {
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+        }
+
+        .contact .section-title h2,
+        .contact .section-title p {
+            color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
-            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
             transition: var(--transition);
         }
-        
-        .social-links a:hover {
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Form status messages */
+        .form-success-message {
+            display: none;
+            background: #10b981;
+            color: white;
+            padding: 15px;
+            border-radius: var(--radius);
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .form-error-message {
+            display: none;
+            background: #ef4444;
+            color: white;
+            padding: 15px;
+            border-radius: var(--radius);
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .form-loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            position: relative;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
             background: var(--primary);
             transform: translateY(-3px);
         }
-        
-        /* Resume Download Button */
-        .resume-download {
-            margin-top: 30px;
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
             text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
         }
-        
+
         /* Notification */
         .notification {
             position: fixed;
@@ -844,607 +872,710 @@
             padding: 15px 25px;
             background: var(--primary);
             color: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
             z-index: 1000;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
-        
+
         .notification.show {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* Form status messages */
-        .form-success-message {
+
+        /* Legal Pages */
+        .legal-section {
+            padding: 100px 0 50px;
+            background-color: white;
             display: none;
-            background: #4ade80;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            text-align: center;
         }
-        
-        .form-error-message {
-            display: none;
-            background: #f87171;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            text-align: center;
+
+        .legal-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
         }
-        
-        .form-loading {
-            opacity: 0.7;
-            pointer-events: none;
+
+        .legal-content h1 {
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
         }
-        
-        /* Animation for section entrance */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .legal-content h2 {
+            color: var(--dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
         }
-        
-        /* Responsive design */
-        @media (max-width: 1100px) {
-            .nav-menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                width: 300px;
-                background: var(--card-bg);
-                padding: 20px;
-                box-shadow: var(--shadow-hover);
-                z-index: 999;
-                border-radius: 0 0 12px 12px;
-            }
-            
-            .nav-menu.active {
-                display: flex;
-            }
-            
-            .nav-item {
-                margin: 10px 0;
-                width: 100%;
-            }
-            
-            .dropdown {
-                position: static;
-                box-shadow: none;
-                margin-top: 10px;
-                margin-left: 20px;
-                display: none;
-                width: calc(100% - 40px);
-                background: rgba(0,0,0,0.05);
-            }
-            
-            .dark-mode .dropdown {
-                background: rgba(255,255,255,0.05);
-            }
-            
-            .nav-item:hover .dropdown {
-                display: none;
-            }
-            
-            .dropdown.show {
-                display: block;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .theme-toggle {
-                margin-left: 15px;
-            }
+
+        .legal-content h3 {
+            color: var(--dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
         }
-        
-        @media (max-width: 968px) {
-            .about-content,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 80px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
+
+        .legal-content p, .legal-content li {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .legal-content ul, .legal-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .legal-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-highlight {
+            background-color: #f8fafc;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            margin: 1.5rem 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .legal-note {
+            background-color: #fff9e6;
+            padding: 1.5rem;
+            border-left: 4px solid var(--warning);
+            margin: 1.5rem 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .back-to-top:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Legal Navigation */
+        .legal-navigation {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .legal-nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .back-to-home {
+            margin-left: auto;
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus styles for better accessibility */
+        button:focus, a:focus, .form-control:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
             h1 {
                 font-size: 2.8rem;
             }
             
             h2 {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            section {
-                padding: 70px 0;
-            }
-            
-            .profile-img {
-                width: 280px;
-                height: 280px;
-            }
-            
-            .logo {
-                font-size: 22px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero {
-                padding-top: 140px;
-                padding-bottom: 80px;
-                height: auto;
-                min-height: 100vh;
-            }
-            
-            .hero h1 {
                 font-size: 2.2rem;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .hero-visual {
+                display: none;
             }
             
-            .logo {
-                font-size: 20px;
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Mobile Navigation - Updated with inverted colors */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                right: 1.5rem;
+                width: 220px;
+                background: var(--primary); /* Changed from white to primary blue */
+                flex-direction: column;
+                align-items: stretch;
+                padding: 1rem 0;
+                box-shadow: var(--shadow-lg);
+                border-radius: var(--radius);
+                transform: translateY(-10px);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 0;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 0.75rem 1.5rem;
+                font-weight: 500;
+                transition: var(--transition);
+                color: white; /* Changed from dark to white */
+            }
+            
+            .nav-links a:hover {
+                background-color: rgba(255, 255, 255, 0.1); /* Changed from var(--light) to white with transparency */
+                color: white;
+            }
+            
+            .nav-actions {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-col h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            /* Center social icons on mobile */
+            .social-links {
+                justify-content: center;
+            }
+
+            .legal-content {
+                padding: 1rem;
+            }
+
+            .legal-navigation {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .legal-nav-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .back-to-home {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero-actions .btn {
+                width: 100%;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .legal-nav-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .legal-nav-buttons .btn {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Cesar <span>Reyes</span></a>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <div class="nav-container">
-                    <ul class="nav-menu" id="navMenu">
-                        <li class="nav-item">
-                            <a href="#about" class="nav-link">About Me</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#education" class="nav-link">Education</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#experience" class="nav-link">Work Experience</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#technical-skills" class="nav-link">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#certifications" class="nav-link">Certifications</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#projects" class="nav-link">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#contact" class="nav-link">Contact Me</a>
-                        </li>
-                    </ul>
-                    
-                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo" id="main-logo">
+                SwiftSite
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </nav>
+            
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-header">Get Quote</a> <!-- Changed to btn-header -->
+            </div>
+            
+            <button class="mobile-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section with Video Background -->
-    <section class="hero">
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="mktg.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="hero-overlay"></div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Marketing & AI Professional</h1>
-                <p>BBA in Marketing | AI Specialist | Open to Opportunities in Sales, Marketing & Tech</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn"><i class="fas fa-briefcase"></i> View My Work</a>
-                    <a href="#contact" class="btn btn-outline contact-btn"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                <h1>Custom Web Design & Development for Local Businesses</h1>
+                <p>We create stunning, responsive websites that drive results. Based in Houston, TX, we help businesses establish a powerful online presence.</p>
+                
+                <div class="hero-actions">
+                    <a href="#portfolio" class="btn btn-primary">View Our Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get Started</a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About Me</h2>
-                    <p>I'm a <span class="highlight">Marketing & AI Professional</span> with a BBA in Marketing from Sam Houston State University and hands-on expertise in <span class="highlight">AI model training, evaluation, prompt engineering and web development</span>. I specialize in bridging business strategy with technical AI & similar tools to create real results.</p>
-
-                    <p>Across 180+ AI projects, I've improved model accuracy by <span class="highlight">18%</span> and cut error rates by <span class="highlight">22%</span> through large, structured data quality control. I'm also experienced with <span class="highlight">LLMs, Data Annotation, Python, SQL, and CRM platforms like Salesforce and Hubspot</span> to project data into business insights.</p>
-
-                    <p>I'm excited about opportunities in <span class="highlight">AI, marketing analytics, and operation strategy</span>, where I be part of a team, apply my technical know-how to drive growth and create practical solutions.</p>
-
-                    <a href="#contact" class="btn contact-btn">Let's Connect!</a>
-                </div>
-                <div class="about-image">
-                    <div class="profile-img">
-                        <!-- Fixed profile image with correct URL and no white background -->
-                        <img src="https://raw.githubusercontent.com/reyecesa1/CR-About-Me/main/profile.jpg" alt="Cesar Reyes - Marketing & AI Professional">
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">8+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">99%</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">24/7</span>
+                        <span class="stat-label">Online Support</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education">
-        <div class="container">
-            <div class="section-title">
-                <h2>Education</h2>
-            </div>
-            <div class="education-content">
-                <div class="education-box">
-                    <h3>Bachelor of Business Administration in Marketing</h3>
-                    <p><strong>Sam Houston State University</strong> — Huntsville, TX</p>
-                    <p class="timeline-date">Graduated: August 2024</p>
-                    <p>Comprehensive marketing education with focus on digital strategies, data analysis & forecasting, project management, logistics, and consumer behaviour analysis.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-title">
-                <h2>Work Experience</h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">OCT 2024 — Present</span>
-                        <h3>AI Data Quality Strategist</h3>
-                        <p><strong>Outlier AI | Remote</strong></p>
-                        <ul>
-                            <li>Provided <span class="highlight">structured AI training</span> that improved contributor performance and reinforced output quality</li>
-                            <li>Completed <span class="highlight">180+ prompt engineering and evaluation tasks</span> with a <span class="highlight-accent">4.2/5 rating</span> across 135 peer-reviewed tasks</li>
-                            <li>Collaborated with multi-functional teams to optimize training data and <span class="highlight">reduce project error rates by 20%</span></li>
-                            <li><span class="highlight">Improved model output accuracy by 18%</span> and reduced error rates by 22% through structured quality control</li>
-                            <li>Utilized <span class="highlight">Jellyfish, LaTeX, JSON, Python, and Wolfram Alpha</span> to ensure data integrity and performance consistency</li>
-                        </ul>
+            
+            <div class="hero-visual">
+                <!-- Updated floating cards with the requested content -->
+                <div class="floating-card">
+                    <div class="card-icon primary">
+                        <i class="fas fa-code"></i>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">May 2024 — Present</span>
-                        <h3>Property & Marketing Manager</h3>
-                        <p><strong>Refica Properties LLC</strong></p>
-                        <ul>
-                            <li>Managed end-to-end rental operations across <span class="highlight">several real estate properties</span></li>
-                            <li>Oversaw <span class="highlight">digital marketing updates</span> and vendor cost control to ensure operational efficiency</li>
-                            <li>Coordinated with contractors and service providers to oversee property maintenance and repairs</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Aug 2019 — Sept 2022</span>
-                        <h3>Swim Instructor</h3>
-                        <p><strong>Aqua-Tots</strong></p>
-                        <ul>
-                            <li>Delivered <span class="highlight">personalized swim instruction</span> for babies and special needs students in 1:4 settings</li>
-                            <li>Built <span class="highlight">loyal client relationships</span> through consistent communication and daily progress reports</li>
-                            <li>Awarded <span class="highlight-accent">'Swims with Sharks'</span> for excellence in adaptability and customer service</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technical Skills Section -->
-    <section id="technical-skills">
-        <div class="container">
-            <div class="section-title">
-                <h2>Technical Skills</h2>
-            </div>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>AI & Data Tools</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-code"></i> Python, SQL, Excel</li>
-                        <li><i class="fas fa-chart-line"></i> Jellyfish, Huggingface</li>
-                        <li><i class="fas fa-robot"></i>Claude, DPSK, Ollama, Copilot</li>
-                        <li><i class="fas fa-square-root-alt"></i> LaTeX</li>
-                        <li><i class="fas fa-database"></i> JSON, Syntax</li>
-                        <li><i class="fas fa-chart-bar"></i> Tableau, Power BI, API</li>
-                        <li><i class="fas fa-calculator"></i> Wolfram Alpha, Orange</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>CRM & Marketing</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-cloud"></i> Salesforce, Airtable, Zapier</li>
-                        <li><i class="fas fa-funnel-dollar"></i> HubSpot</li>
-                        <li><i class="fas fa-tools"></i> ServiceTitan</li>
-                        <li><i class="fas fa-chart-pie"></i> Google Analytics</li>
-                        <li><i class="fas fa-paint-brush"></i> Canva, CSS3, Canvas API </li>
-                        <li><i class="fas fa-share-alt"></i> Hootsuite</li>
-                        <li><i class="fas fa-tags"></i> Adobe Tag Manager</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Business & Project Management</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-tasks"></i> Project Coordination</li>
-                        <li><i class="fas fa-users"></i> Cross-Functional Collaboration</li>
-                        <li><i class="fas fa-tachometer-alt"></i> Workflow Optimization, solution insights</li>
-                        <li><i class="fas fa-handshake"></i> Vendor Management</li>
-                        <li><i class="fas fa-bullseye"></i> B2C Lead Generation</li>
-                        <li><i class="fas fa-chart-line"></i> Campaign Analysis, Forecasting</li>
-                        <li><i class="fas fa-check-circle"></i> Quality Assurance</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Soft Skills</h3>
-                    <ul class="skill-list">
-                        <li><i class="fas fa-brain"></i> Analytical Thinking</li>
-                        <li><i class="fas fa-chess"></i> Attention to Detail</li>
-                        <li><i class="fas fa-lightbulb"></i> Problem Solving & Collaboration</li>
-                        <li><i class="fas fa-comments"></i> Communication & Coaching</li>
-                        <li><i class="fas fa-sync-alt"></i> Adaptability & Grit</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications">
-        <div class="container">
-            <div class="section-title">
-                <h2>Certifications</h2>
-            </div>
-            <div class="certs-categories">
-                <div class="cert-category">
-                    <h3>Tech</h3>
-                    <ul class="cert-list">
-                        <li>
-                            <strong><a href="https://www.coursera.org/account/accomplishments/verify/XGJ6QORK66G6" target="_blank">Python for Data Science, AI & Development</a></strong>
-                            <div>IBM | July 2025</div>
-                        </li>
-                        <li>
-                            <strong><a href="https://www.coursera.org/account/accomplishments/specialization/I74VHZ9TK5QS" target="_blank">AI Applications in People Management</a></strong>
-                            <div>University of Pennsylvania | Nov 2024</div>
-                        </li>
-                        <li>
-                            <strong><a href="https://www.coursera.org/account/accomplishments/specialization/I74VHZ9TK5QS" target="_blank">AI Strategy and Governance</a></strong>
-                            <div>University of Pennsylvania | Nov 2024</div>
-                        </li>
-                        <li>
-                            <strong><a href="https://www.coursera.org/account/accomplishments/specialization/I74VHZ9TK5QS" target="_blank">AI in Marketing & Finance</a></strong>
-                            <div>University of Pennsylvania | Nov 2024</div>
-                        </li>
-                        <li>
-                            <strong><a href="https://www.coursera.org/account/accomplishments/specialization/I74VHZ9TK5QS" target="_blank">AI Fundamentals for Non-Data Scientists</a></strong>
-                            <div>University of Pennsylvania | Aug 2024</div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="cert-category">
-                    <h3>Marketing</h3>
-                    <ul class="cert-list">
-                        <li>
-                            <strong><a href="https://www.coursera.org/account/accomplishments/verify/PZ4U23DWZKFG" target="_blank">Data for Business Analysts Using Excel</a></strong>
-                            <div>Microsoft | Nov 2024</div>
-                        </li>
-                        <li>
-                            <strong><a href="https://www.coursera.org/account/accomplishments/verify/AATPKQ7W7IKW" target="_blank">Business Analysis Fundamentals</a></strong>
-                            <div>Microsoft | Aug 2024</div>
-                        </li>
-                        <li>
-                            <strong><a href="https://www.coursera.org/account/accomplishments/verify/4N6HVHYW8HTA" target="_blank">Project Management Fundamentals</a></strong>
-                            <div>Microsoft | Aug 2024</div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="cert-category">
-                    <h3>Sales</h3>
-                    <ul class="cert-list">
-                        <li>
-                            <strong><a href="https://www.linkedin.com/feed/update/urn:li:activity:7361871796083572736/" target="_blank">Sales Fundamentals Introduction Training Course</a></strong>
-                            <div>Hyundai | July 2025</div>
-                        </li>
-                        <li>
-                            <strong><a href="https://www.coursera.org/account/accomplishments/verify/I73ISJWMNAB5" target="_blank">Sales & CRM Overview</a></strong>
-                            <div>Salesforce | Aug 2024</div>
-                        </li>
-                        <li>
-                            <strong><a href="https://www.coursera.org/account/accomplishments/verify/H46BNU1S6A0G" target="_blank">Successful Negotiation</a></strong>
-                            <div>University of Michigan | Oct 2024</div>
-                        </li>
-                        <li>
-                            <strong><a href="https://www.coursera.org/account/accomplishments/verify/Z3X32VURN0NN" target="_blank">Financial Markets</a></strong>
-                            <div>Yale University | Oct 2024</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-title">
-                <h2>Projects & Other Experience</h2>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="artisan.png" alt="Artisan Gems">
-                        <div class="project-overlay">
-                            <a href="https://reyecesa1.github.io/Artisan-Gems/" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Project</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Artisan Gems: Bespoke Jewelry</h3>
-                        <p><strong>Responsive e-commerce site</strong></p>
-                        <p>Built and designed with HTML5 and Python for a custom jewelry business. Features a price calculator and smooth animations for a mobile first approach. Showcasing Digital Marketing and technical blend.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="TLH.png" alt="The Little Hiker">
-                        <div class="project-overlay">
-                            <a href="https://reyecesa1.github.io/The-Little-Hiker/" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Project</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>The Little Hiker: Time-Based Scenes</h3>
-                        <p><strong>Creative Coding & Canvas API</strong></p>
-                        <p>A canvas-based animation that changes scenes based on user's local time, Parallax effects and showcasing creative coding & game graphic skills.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="chatbot.png" alt="Recruiter Assistant">
-                        <div class="project-overlay">
-                            <a href="https://reyecesa1.github.io/Resume-Assistant-Chatbot/" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Project</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Cesar's Recruiter Assistant</h3>
-                        <p><strong>Interactive Chat Application</strong></p>
-                        <p>An interactive chat interface with custom keyword-matching algorithm, NLP simulation, Dom scripting, and responsive UI. Answers questions about my resume, showcasing technical adaptability. </p>
+                    <div>
+                        <h4>Website Building</h4>
+                        <p>Custom Solutions</p>
                     </div>
                 </div>
                 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="techhub.png" alt="AI Tech Hub">
-                        <div class="project-overlay">
-                            <a href="https://ai-tech-hub.vercel.app/" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Project</a>
-                        </div>
+                <div class="floating-card">
+                    <div class="card-icon accent">
+                        <i class="fas fa-pencil-ruler"></i>
                     </div>
-                    <div class="project-content">
-                        <h3>AI Tech Hub</h3>
-                        <p><strong>AI Resources & Learning Platform</strong></p>
-                        <p>A comprehensive platform featuring AI tools, tutorials, and resources for developers and enthusiasts. Built with modern web technologies and featuring interactive components for an engaging user experience.</p>
+                    <div>
+                        <h4>Integral Design</h4>
+                        <p>Complete Branding</p>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="swift.png" alt="Swiftsite">
-                        <div class="project-overlay">
-                            <a href="https://swiftsiteonline.vercel.app/" class="project-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Project</a>
-                        </div>
+                
+                <div class="floating-card">
+                    <div class="card-icon secondary">
+                        <i class="fas fa-database"></i>
                     </div>
-                    <div class="project-content">
-                        <h3>Swiftsite</h3>
-                        <p><strong>Fast & Responsive Web Solutions</strong></p>
-                        <p>A modern web development platform focused on creating fast, responsive websites with optimized performance. Features cutting-edge design patterns and development methodologies.</p>
+                    <div>
+                        <h4>Database & Security</h4>
+                        <p>Protected Data</p>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>AskBot.Chat (AI Chatbot)</h3>
-                        <p><strong>Co-Founder | Nov 2023 — Aug 2024</strong></p>
-                        <p>Designed and created content for an AI chatbot webpage, collaborating with developers on UX/UI.</p>
-                        <p>Conducted research on LLM applications & APIs to enhance platform value and user experience.</p>
+                
+                <div class="floating-card">
+                    <div class="card-icon success">
+                        <i class="fas fa-tools"></i>
                     </div>
+                    <div>
+                        <h4>Maintenance</h4>
+                        <p>Ongoing Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a comprehensive range of web services to help your business thrive online.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Web Design</h3>
+                    <p>Custom, visually appealing designs that reflect your brand and engage your audience.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Robust, scalable websites built with the latest technologies and best practices.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-Commerce</h3>
+                    <p>Complete online store solutions to sell your products and grow your business.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Optimization</h3>
+                    <p>Improve your search engine rankings and increase organic traffic to your website.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Website Maintenance</h3>
+                    <p>Ongoing support, updates, and security to keep your website running smoothly.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Hosting Solutions</h3>
+                    <p>Reliable, secure hosting with 99.9% uptime guarantee on Google Cloud infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Portfolio</h2>
+                <p>Check out some of our recent projects and see how we've helped businesses like yours.</p>
+            </div>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web-design">Web Design</button>
+                <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- New portfolio items -->
+                <div class="portfolio-item" data-category="web-design">
+                    <div class="portfolio-img">
+                        <img src="medina.png" alt="Medina Tire Service Website">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Medina Tire Service</h3>
+                        <p>A responsive website for a tire service company in Houston with service listings and contact information.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Web Design</span>
+                            <span class="tag">Responsive</span>
+                            <span class="tag">Local Business</span>
+                        </div>
+                        <a href="https://medinatireservice-website.vercel.app" target="_blank" class="portfolio-link">View Website →</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="web-design">
+                    <div class="portfolio-img">
+                        <img src="nati.png" alt="Nati Nails Website">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Nati Nails</h3>
+                        <p>A sleek website for a nail salon with service listings, booking information, and gallery showcase.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Web Design</span>
+                            <span class="tag">Beauty Industry</span>
+                            <span class="tag">Service Booking</span>
+                        </div>
+                        <a href="https://natinails.vercel.app/" target="_blank" class="portfolio-link">View Website →</a>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="ecommerce">
+                    <div class="portfolio-img">
+                        <img src="artisan.png" alt="Artisan Gems Website">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Artisan Gems</h3>
+                        <p>An elegant e-commerce website for a jewelry store in The Woodlands, TX with product catalog and pricing processing.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">E-Commerce</span>
+                            <span class="tag">Jewelry</span>
+                            <span class="tag">Payment Gateway</span>
+                        </div>
+                        <a href="https://artisan-gems-the-woodlands-tx.vercel.app/" target="_blank" class="portfolio-link">View Website →</a>
+                    </div>
+                </div>
+                
+                <!-- Updated "Coming Soon" portfolio items with SwiftSiteLogo.jpg -->
+                <div class="portfolio-item" data-category="web-design">
+                    <div class="portfolio-img">
+                        <img src="SwiftSiteLogo.jpg" alt="Coming Soon Project">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Coming Soon..</h3>
+                        <p>A modern website is under current development.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Web Design</span>
+                            <span class="tag">Responsive</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="ecommerce">
+                    <div class="portfolio-img">
+                        <img src="SwiftSiteLogo.jpg" alt="Coming Soon Project">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Coming Soon..</h3>
+                        <p>A modern website is under current development.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">E-Commerce</span>
+                            <span class="tag">Payment Gateway</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="branding">
+                    <div class="portfolio-img">
+                        <img src="SwiftSiteLogo.jpg" alt="Coming Soon Project">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Coming Soon..</h3>
+                        <p>A modern website is under current development.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Web Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>See what our clients have to say about working with SwiftSite.</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"SwiftSite transformed our online presence completely. Our new website has increased our leads by 40% and the design perfectly represents our brand. The team was professional, responsive, and delivered on time."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Sarah Johnson</h4>
+                            <p class="testimonial-role">Owner, Houston Restaurant</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"The e-commerce website SwiftSite built for our boutique has exceeded our expectations. Sales have increased significantly, and the user experience is seamless. Their ongoing support has been invaluable."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Michael Torres</h4>
+                            <p class="testimonial-role">Manager, Local Boutique</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"As a tech startup, we needed a website that reflected our innovation and professionalism. SwiftSite delivered exactly that. The site is fast, modern, and has helped us attract investors and customers alike."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <h4>Jennifer Lee</h4>
+                            <p class="testimonial-role">CEO, Tech Startup</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-nav">
+                    <div class="slider-dot active" data-slide="0"></div>
+                    <div class="slider-dot" data-slide="1"></div>
+                    <div class="slider-dot" data-slide="2"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section class="section contact" id="contact">
         <div class="container">
             <div class="section-title">
                 <h2>Get In Touch</h2>
+                <p>Ready to start your project? Contact us today for a free consultation and quote.</p>
             </div>
+            
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Let's discuss opportunities</h3>
-                    <p>I'm actively seeking roles in tech, marketing, and service industries where I can apply my unique combination of marketing expertise and AI technical skills.</p>
-                    <div class="contact-method">
-                        <i class="fas fa-envelope"></i>
-                        <span>reyecesa1@gmail.com</span>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Our Location</h3>
+                            <p>Houston, Texas</p>
+                        </div>
                     </div>
-                    <div class="contact-method">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Tomball, TX 77375</span>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>swiftsiteonline@gmail.com</p>
+                        </div>
                     </div>
-                    <div class="contact-method">
-                        <i class="fab fa-linkedin"></i>
-                        <span>linkedin.com/in/cre25</span>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Online Support</h3>
+                            <p>24/7 Email & Chat Support</p>
+                        </div>
                     </div>
-                    <div class="resume-download">
-                        <a href="https://github.com/reyecesa1/CR-About-Me/raw/main/Reyes_Cesar_RESUME25.docx" 
-                           class="btn" 
-                           download="Reyes_Cesar_RESUME25.docx">
-                            <i class="fas fa-download"></i> Download Resume
-                        </a>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Business Hours</h3>
+                            <p>Mon - Fri: 9am - 6pm CST</p>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="contact-form">
-                    <!-- Updated form with Formspree action -->
-                    <form id="contactForm" action="https://formspree.io/f/mjkelwlg" method="POST">
+                    <!-- Updated form with Formspree action and service dropdown -->
+                    <form id="contactForm" action="https://formspree.io/f/mwprnyaq" method="POST">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required aria-required="true">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required aria-required="true">
                         </div>
+                        
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required aria-required="true">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required aria-required="true">
                         </div>
+                        
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required aria-required="true"></textarea>
+                            <label for="service" class="form-label">Service Interested In</label>
+                            <select id="service" name="service" class="form-control" required aria-required="true">
+                                <option value="" disabled selected>Select a service...</option>
+                                <option value="Web Design">Web Design</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="E-Commerce">E-Commerce</option>
+                                <option value="SEO Optimization">SEO Optimization</option>
+                                <option value="Website Maintenance">Website Maintenance</option>
+                                <option value="Hosting Solutions">Hosting Solutions</option>
+                                <option value="Other">Other (please specify in message)</option>
+                            </select>
                         </div>
-                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" required aria-required="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
                         
                         <!-- Form status messages -->
                         <div class="form-success-message" id="formSuccess">
@@ -1459,18 +1590,267 @@
         </div>
     </section>
 
+    <!-- Legal Pages -->
+    <section id="legal" class="legal-section">
+        <div class="container">
+            <div class="legal-content">
+                <!-- Legal Navigation -->
+                <div class="legal-navigation">
+                    <div class="legal-nav-buttons">
+                        <a href="#privacy-policy" class="btn btn-secondary legal-nav-btn" data-policy="privacy">Privacy Policy</a>
+                        <a href="#terms-conditions" class="btn btn-secondary legal-nav-btn" data-policy="terms">Terms & Conditions</a>
+                        <a href="#cookie-policy" class="btn btn-secondary legal-nav-btn" data-policy="cookie">Cookie Policy</a>
+                    </div>
+                    <a href="#" class="btn btn-primary back-to-home" id="back-to-home">Back to Home</a>
+                </div>
+
+                <!-- Privacy Policy -->
+                <div id="privacy-policy" class="legal-document">
+                    <h1>Privacy Policy</h1>
+                    <div class="legal-highlight">
+                        <p><strong>Last Updated:</strong> <span id="privacy-date"></span></p>
+                    </div>
+                    
+                    <div class="legal-note">
+                        <p><strong>Note:</strong> This document is a summarized version of our legal policies. For the complete documents, please contact us at <strong>swiftsiteonline@gmail.com</strong> and we'll be happy to share them with you.</p>
+                    </div>
+                    
+                    <h2>Introduction</h2>
+                    <p>SwiftSite ("we," "us," "our") is committed to protecting your privacy. This policy describes how we collect, use, and share information when you visit our website or use our services. By accessing our site or engaging our services, you consent to the practices described herein.</p>
+                    <p>SwiftSite operates in Houston, Texas, and our Privacy Policy reflects U.S. law and the Texas Data Privacy and Security Act (effective July 2024) — although small-business exemptions apply. We <strong>do not sell</strong> your personal information. We use industry-standard technical and administrative safeguards to protect your data (e.g. secure SSL/TLS transmission, Prisma/Neon database on Google Cloud), but no system is 100% foolproof.</p>
+                    
+                    <h2>Information We Collect</h2>
+                    <p>We collect only what is necessary to provide our services.</p>
+                    
+                    <h3>Voluntary Information</h3>
+                    <p>When you contact us (for a quote or project), we collect identifying details such as your name, email address, phone number, company name, and project description. We may also collect business content you provide (text, images, logos, etc.) to build your site.</p>
+                    
+                    <h3>Automatically Collected Information</h3>
+                    <p>We gather technical data about your device and usage (your IP address, browser and operating system, pages viewed, and timestamps) via server logs and cookies. Cookies and similar tracking technologies help us understand site usage and improve functionality. For example, when we embed Google Maps or use Google APIs (for location or email), any information received from those APIs is handled according to Google's user data policies. We do not collect sensitive personal data like financial or health information.</p>
+                    
+                    <h2>How We Use Your Information</h2>
+                    <p>We use collected data for legitimate business purposes: to provide, operate, and maintain the SwiftSite website and the services we agree to perform. Specifically, we use your information to:</p>
+                    <ul>
+                        <li><strong>Deliver and manage services</strong> (e.g. build and launch your website)</li>
+                        <li><strong>Communicate with you</strong> (respond to inquiries, send project updates, or administrative notices)</li>
+                        <li><strong>Send marketing or promotional messages</strong> (only if you opt in — and you can opt-out any time)</li>
+                        <li><strong>Security and improvement purposes</strong> (for example, fraud prevention and to improve user experience)</li>
+                    </ul>
+                    <p>We will never use your information beyond the stated purposes.</p>
+                    
+                    <h2>Disclosure of Information</h2>
+                    <p>We share your information only as needed for our business operations and never sell it. We may disclose data to:</p>
+                    <ul>
+                        <li><strong>Service Providers:</strong> Trusted third-party vendors who assist with services such as website hosting, database and storage (e.g. Neon and Google Cloud), email delivery (e.g. Google Workspace, Mailchimp), analytics (e.g. Google Analytics), or customer support. These providers are contractually bound to keep your information confidential and use it only to deliver their services.</li>
+                        <li><strong>Business Transfers:</strong> In the event SwiftSite is merged, sold, or undergoes similar corporate changes, your information may be transferred to the new owner as part of the transaction.</li>
+                        <li><strong>Legal Obligations:</strong> We may release information if required by law, subpoena, or government request, or to protect our rights and safety (for example, in response to legal process).</li>
+                    </ul>
+                    <p>In all cases, we do <em>not</em> share or trade your personal data for marketing unless you explicitly consent.</p>
+                    
+                    <h2>Data Retention</h2>
+                    <p>We retain your personal information only as long as necessary to fulfill the purposes described (for example, the duration of your project and any required maintenance period) or to meet legal requirements. If we have no ongoing need, we will delete or anonymize your data. For instance, one local web company specifies that no purpose requires keeping data beyond two years. We follow a similar approach: once your project is complete and any legal/contractual obligations are met, we will delete or securely archive your personal data.</p>
+                    
+                    <h2>Your Rights</h2>
+                    <p>You have rights regarding your personal data under applicable law. Texas law grants rights to:</p>
+                    <ul>
+                        <li>Know what data we hold</li>
+                        <li>Access that data</li>
+                        <li>Correct inaccuracies</li>
+                        <li>Delete data we have about you</li>
+                        <li>Restrict or object to our processing of your data</li>
+                        <li>Opt-out of any sale of your data (We do <em>not</em> sell your data, so opt-out of sale is not applicable)</li>
+                    </ul>
+                    <p>You also have the right to withdraw any consent you previously gave (for example, to marketing emails) at any time. To exercise these rights or for private inquiries, contact us (see below). We will respond without undue delay, typically within 30–45 days as required by law.</p>
+                    
+                    <h2>Data Security</h2>
+                    <p>We employ administrative, technical, and physical security measures (encryption, firewalls, access controls) to protect your information. For example, SwiftSite's data is hosted on secure Google Cloud servers, and all data traffic is encrypted. However, we remind you that no Internet or electronic storage method is perfectly secure, and we cannot guarantee absolute security. While we strive to protect your data, transmitting personal information to us is at your own risk.</p>
+                    
+                    <h2>Children's Privacy</h2>
+                    <p>Our website and services are intended for businesses and are not directed at children. We do <em>not</em> knowingly collect or solicit personal data from anyone under the age of 13. If we learn that we have inadvertently collected information from a child under 13, we will promptly delete it.</p>
+                    
+                    <h2>Cookies and Tracking</h2>
+                    <p>We use cookies and similar technologies (like web beacons and analytics tools) to enhance site functionality and to understand site usage. Cookies help us remember user preferences and track visits to our site. You can disable cookies in your browser settings (though some site features may not work properly), and most browsers allow you to opt-out of targeted advertising.</p>
+                    
+                    <h2>Changes to This Privacy Policy</h2>
+                    <p>We may update this Privacy Policy from time to time. When we do, we will change the "Last Updated" date and post the new policy on our site. Material changes will be communicated (for example, via a banner notice or email if we have your address). We encourage you to review this policy periodically. Continued use of our services after changes are posted constitutes acceptance of the updated terms.</p>
+                    
+                    <h2>Contact Us</h2>
+                    <p>For any questions or to exercise your privacy rights, please contact us at <strong>swiftsiteonline@gmail.com</strong>. We will do our best to address your concerns in a timely manner.</p>
+                    
+                    <a href="#" class="back-to-top">Back to Top</a>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div id="terms-conditions" class="legal-document" style="display: none;">
+                    <h1>Terms and Conditions</h1>
+                    <div class="legal-highlight">
+                        <p><strong>Last Updated:</strong> <span id="terms-date"></span></p>
+                    </div>
+                    
+                    <div class="legal-note">
+                        <p><strong>Note:</strong> This document is a summarized version of our legal policies. For the complete documents, please contact us at <strong>swiftsiteonline@gmail.com</strong> and we'll be happy to share them with you.</p>
+                    </div>
+                    
+                    <h2>1. Agreement to Terms</h2>
+                    <p>By accessing or using the SwiftSite website and services ("Site" and "Services"), you agree to these Terms and Conditions and our Privacy Policy. If you do not agree, please do not use our Site or services. We may update these Terms at any time by posting revisions on the Site; changes take effect immediately upon posting.</p>
+                    
+                    <h2>2. Services</h2>
+                    <p>SwiftSite provides custom web design, development, hosting, and maintenance services to local businesses. A separate <strong>Project Agreement (Scope of Work)</strong> will define the specific details of each project (scope, timeline, deliverables, fees). This Privacy Policy and these general Terms govern all interactions, but the Project Agreement (when signed) sets the detailed obligations for that project.</p>
+                    
+                    <h2>3. Client Responsibilities</h2>
+                    <ul>
+                        <li><strong>Content and Materials:</strong> You must provide all necessary materials for your project (text, images, logos, etc.) in a timely manner and in the requested format. You guarantee that you have the legal right to use and publish any content you supply (for example, you own or have license to provide images or text). You agree to indemnify and hold SwiftSite harmless from any claims arising from content you provide.</li>
+                        <li><strong>Feedback and Approval:</strong> You agree to review work in a timely fashion and provide clear feedback. You will be responsible for the final approval of the website. If delays are caused by late feedback or unavailability of required information, the project timeline and fees may be adjusted.</li>
+                        <li><strong>Cooperation:</strong> You must cooperate with SwiftSite by communicating preferences and changes promptly during development and maintenance.</li>
+                    </ul>
+                    
+                    <h2>4. Fees and Payment</h2>
+                    <ul>
+                        <li><strong>Fees:</strong> Project fees will be quoted in a proposal and in U.S. Dollars. We typically require a non-refundable deposit (often 50%) to begin work. The remaining balance is due upon project completion, before website launch or delivery of final files.</li>
+                        <li><strong>Invoices:</strong> We will invoice you according to the agreed schedule. If any fees are late, we reserve the right to charge interest at 1.5% per month (or the maximum allowed by Texas law). SwiftSite does not process payments through the website; payments are made by invoice (credit card, bank transfer, etc.) as agreed.</li>
+                        <li><strong>Taxes:</strong> You are responsible for any applicable taxes or duties unless exempted by law.</li>
+                    </ul>
+                    
+                    <h2>5. Intellectual Property</h2>
+                    <ul>
+                        <li><strong>Your Content:</strong> You retain ownership of all content you provide (logos, text, images, etc.). We only use your content for purposes of building and delivering your project. You indemnify us if your content infringes others' rights.</li>
+                        <li><strong>Deliverables:</strong> Upon full payment, you own the final website design and code written specifically for your project, and SwiftSite grants you a perpetual license to use the delivered website for your business. We will deliver all project files and materials to you at completion.</li>
+                        <li><strong>Our Pre-existing Materials:</strong> SwiftSite retains ownership of any pre-existing intellectual property (such as frameworks, code libraries, templates, or tools) used in your project. We grant you a license to use those parts only as embedded in your delivered site. You may not copy or use our proprietary code outside this project.</li>
+                        <li><strong>Portfolio Rights:</strong> SwiftSite retains the right to display the completed project (including screenshots, descriptions, and your company name) in our portfolio and marketing materials.</li>
+                    </ul>
+                    
+                    <h2>6. Revisions and Approval</h2>
+                    <p>Your Project Agreement will specify the number of design revisions included. Any additional changes beyond the agreed number of revisions may incur extra charges. You are responsible for reviewing and approving each stage of work (design mockups, development builds, etc.) before proceeding. Once you give final written approval, the project is considered accepted.</p>
+                    
+                    <h2>7. Hosting and Maintenance</h2>
+                    <ul>
+                        <li><strong>Hosting:</strong> If we provide hosting as part of your project, we will host the website on our secured servers (e.g., Google Cloud) with an uptime commitment (typically 99.9%) and maintain backups of your site.</li>
+                        <li><strong>Maintenance:</strong> As part of a maintenance plan, SwiftSite will perform agreed-upon updates, security patches, and fixes within a reasonable timeframe. Emergency fixes may be made immediately or prioritized according to plan. Additional work (beyond the plan) will be billed separately. You are responsible for providing access credentials (FTP, CMS, etc.) for hosted sites.</li>
+                        <li><strong>Third-Party Accounts:</strong> Any third-party services needed for your site (e.g. domain registration, premium plugins, email service) are your responsibility. We can assist in setup, but you will need your own accounts and payments to those vendors.</li>
+                    </ul>
+                    
+                    <h2>8. Disclaimer of Warranties</h2>
+                    <p>YOUR USE OF THE SERVICES IS AT YOUR OWN RISK. SWIFTSITE PROVIDES THE SERVICES "AS IS" AND "AS AVAILABLE," WITHOUT ANY WARRANTY OF ANY KIND. To the fullest extent permitted by Texas law, SwiftSite disclaims all warranties, express or implied, including any implied warranties of merchantability or fitness for a particular purpose. We do not guarantee that the site will be error-free or uninterrupted, or that all content or functions will meet your requirements.</p>
+                    
+                    <h2>9. Limitation of Liability</h2>
+                    <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, SWIFTSITE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES (INCLUDING LOST PROFITS, DATA LOSS, OR BUSINESS INTERRUPTION) ARISING OUT OF OR IN CONNECTION WITH OUR SERVICES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. Our total liability for any claim related to these Terms or services shall not exceed the fees you paid us for the project. This limitation applies to all causes of action, including contract, tort, and warranty claims.</p>
+                    
+                    <h2>10. Indemnification</h2>
+                    <p>You agree to indemnify and hold SwiftSite and its officers, employees, and agents harmless from any claims, losses, liabilities, damages, or expenses (including attorney fees) arising out of your breach of these Terms or your use of our services. This includes any claim related to content you provided (for example, if a third-party claims copyright infringement) or any unlawful use of the delivered website by you.</p>
+                    
+                    <h2>11. Governing Law and Venue</h2>
+                    <p>These Terms and any related agreements are governed by the laws of the State of Texas (without regard to conflict-of-law principles). Any legal action or proceeding arising out of or related to these Terms shall be brought in state or federal courts in Harris County, Texas (Houston), and you consent to personal jurisdiction there.</p>
+                    
+                    <h2>12. Changes to Terms</h2>
+                    <p>SwiftSite reserves the right to modify these Terms at any time. Any changes will be effective immediately upon posting on our website. Your continued use of the Site or services after revisions are posted means you accept the new terms. We encourage you to review this page periodically.</p>
+                    
+                    <h2>13. Contact Information</h2>
+                    <p>For questions about these Terms or our services, please contact us at <strong>swiftsiteonline@gmail.com</strong>. We will use reasonable efforts to address your concerns.</p>
+                    
+                    <a href="#" class="back-to-top">Back to Top</a>
+                </div>
+
+                <!-- Cookie Policy -->
+                <div id="cookie-policy" class="legal-document" style="display: none;">
+                    <h1>Cookie Policy</h1>
+                    <div class="legal-highlight">
+                        <p><strong>Last Updated:</strong> <span id="cookie-date"></span></p>
+                    </div>
+                    
+                    <div class="legal-note">
+                        <p><strong>Note:</strong> This document is a summarized version of our legal policies. For the complete documents, please contact us at <strong>swiftsiteonline@gmail.com</strong> and we'll be happy to share them with you.</p>
+                    </div>
+                    
+                    <h2>1. What Are Cookies</h2>
+                    <p>Cookies are small text files that are placed on your computer or mobile device when you visit our website. They are widely used to make websites work more efficiently and provide information to the website owners.</p>
+                    
+                    <h2>2. How We Use Cookies</h2>
+                    <p>We use cookies for several purposes:</p>
+                    <ul>
+                        <li><strong>Essential Cookies:</strong> These are necessary for the website to function properly and cannot be switched off.</li>
+                        <li><strong>Analytics Cookies:</strong> These allow us to count visits and traffic sources so we can measure and improve the performance of our site.</li>
+                        <li><strong>Functional Cookies:</strong> These enable the website to provide enhanced functionality and personalization.</li>
+                        <li><strong>Marketing Cookies:</strong> These may be set through our site by our advertising partners to build a profile of your interests.</li>
+                    </ul>
+                    
+                    <h2>3. Types of Cookies We Use</h2>
+                    <p>We use both session cookies (which expire when you close your browser) and persistent cookies (which stay on your device for a set period of time or until you delete them).</p>
+                    
+                    <h2>4. Third-Party Cookies</h2>
+                    <p>In addition to our own cookies, we may also use various third-party cookies to report usage statistics of the website, deliver advertisements on and through the website, and so on.</p>
+                    
+                    <h2>5. Your Choices Regarding Cookies</h2>
+                    <p>You can set your browser to refuse all or some browser cookies, or to alert you when websites set or access cookies. If you disable or refuse cookies, please note that some parts of this website may become inaccessible or not function properly.</p>
+                    
+                    <h2>6. Changes to This Cookie Policy</h2>
+                    <p>We may update this Cookie Policy from time to time. We will notify you of any changes by posting the new Cookie Policy on this page and updating the "Last Updated" date.</p>
+                    
+                    <h2>7. Contact Us</h2>
+                    <p>If you have any questions about our use of cookies, please contact us at <strong>swiftsiteonline@gmail.com</strong>.</p>
+                    
+                    <a href="#" class="back-to-top">Back to Top</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="logo" style="color: white;">Cesar Reyes</div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/cre25" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:reyecesa1@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://github.com/reyecesa1" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>SwiftSite</h3>
+                    <p>Custom web design and development services for businesses in Houston, TX and beyond.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
                 </div>
-                <p>&copy; 2025 Cesar Reyes. All rights reserved.</p>
-                <!-- REMOVED: The resume download button from footer -->
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Web Design</a></li>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">E-Commerce</a></li>
+                        <li><a href="#services">SEO Optimization</a></li>
+                        <li><a href="#services">Website Maintenance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#privacy-policy" class="legal-link" data-policy="privacy">Privacy Policy</a></li>
+                        <li><a href="#terms-conditions" class="legal-link" data-policy="terms">Terms & Conditions</a></li>
+                        <li><a href="#cookie-policy" class="legal-link" data-policy="cookie">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 SwiftSite. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1481,195 +1861,410 @@
     </div>
 
     <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('i');
+        // Initialize GSAP animations
+        gsap.registerPlugin(ScrollTrigger);
         
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile navigation toggle
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const navLinksItems = document.querySelectorAll('.nav-links a');
             
-            if (document.body.classList.contains('dark-mode')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-                localStorage.setItem('theme', 'light');
+            // Toggle mobile menu
+            mobileToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                // Toggle between hamburger and close icon
+                const icon = this.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when a link is clicked
+            navLinksItems.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    mobileToggle.querySelector('i').classList.remove('fa-times');
+                    mobileToggle.querySelector('i').classList.add('fa-bars');
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Portfolio filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Testimonial slider
+            const sliderTrack = document.querySelector('.testimonial-track');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            let currentSlide = 0;
+            
+            function goToSlide(index) {
+                sliderTrack.style.transform = `translateX(-${index * 100}%)`;
+                
+                // Update dots
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[index].classList.add('active');
+                
+                currentSlide = index;
             }
-        });
-
-        // Check for saved theme preference
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        }
-
-        // Updated form submission handling
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
             
-            // Show loading state
-            this.classList.add('form-loading');
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const slideIndex = parseInt(this.getAttribute('data-slide'));
+                    goToSlide(slideIndex);
+                });
+            });
             
-            try {
-                // Submit form to Formspree
-                const response = await fetch(this.action, {
-                    method: this.method,
-                    body: new FormData(this),
-                    headers: {
-                        'Accept': 'application/json'
+            // Auto slide
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                goToSlide(currentSlide);
+            }, 5000);
+            
+            // Enhanced Floating cards system
+            const floatingCards = document.querySelectorAll('.floating-card');
+            let currentFeaturedCard = 0;
+            
+            // Initialize: show all cards with a featured one
+            function initializeCards() {
+                floatingCards.forEach((card, index) => {
+                    // Show all cards immediately
+                    card.classList.add('active');
+                    
+                    // Set the first card as featured initially
+                    if (index === 0) {
+                        card.classList.add('featured');
                     }
                 });
+            }
+            
+            // Function to rotate featured card
+            function rotateFeaturedCard() {
+                // Remove featured class from current card
+                floatingCards[currentFeaturedCard].classList.remove('featured');
                 
-                if (response.ok) {
-                    // Show success message
-                    document.getElementById('formSuccess').style.display = 'block';
-                    document.getElementById('formError').style.display = 'none';
+                // Move to next card
+                currentFeaturedCard = (currentFeaturedCard + 1) % floatingCards.length;
+                
+                // Add featured class to new card
+                floatingCards[currentFeaturedCard].classList.add('featured');
+            }
+            
+            // Initialize cards on page load
+            initializeCards();
+            
+            // Start rotation every 4 seconds (longer duration)
+            const cardRotationInterval = setInterval(rotateFeaturedCard, 4000);
+            
+            // Form submission with Formspree
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                this.classList.add('form-loading');
+                
+                try {
+                    // Submit form to Formspree
+                    const response = await fetch(this.action, {
+                        method: this.method,
+                        body: new FormData(this),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
                     
-                    // Reset form
-                    this.reset();
+                    if (response.ok) {
+                        // Show success message
+                        document.getElementById('formSuccess').style.display = 'block';
+                        document.getElementById('formError').style.display = 'none';
+                        
+                        // Reset form
+                        this.reset();
+                        
+                        // Also show the notification
+                        const notification = document.getElementById('notification');
+                        notification.textContent = 'Message sent successfully!';
+                        notification.classList.add('show');
+                        
+                        // Hide notification after 3 seconds
+                        setTimeout(() => {
+                            notification.classList.remove('show');
+                        }, 3000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    // Show error message
+                    document.getElementById('formError').style.display = 'block';
+                    document.getElementById('formSuccess').style.display = 'none';
                     
-                    // Also show the notification
+                    // Also show the notification with error
                     const notification = document.getElementById('notification');
-                    notification.textContent = 'Message sent successfully!';
+                    notification.textContent = 'Error sending message. Please try again.';
                     notification.classList.add('show');
                     
                     // Hide notification after 3 seconds
                     setTimeout(() => {
                         notification.classList.remove('show');
                     }, 3000);
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                // Show error message
-                document.getElementById('formError').style.display = 'block';
-                document.getElementById('formSuccess').style.display = 'none';
-                
-                // Also show the notification with error
-                const notification = document.getElementById('notification');
-                notification.textContent = 'Error sending message. Please try again.';
-                notification.classList.add('show');
-                
-                // Hide notification after 3 seconds
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 3000);
-            } finally {
-                // Remove loading state
-                this.classList.remove('form-loading');
-            }
-        });
-
-        // Add scroll effect to navigation
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            } else {
-                header.style.boxShadow = 'none';
-            }
-            
-            // Section animation on scroll
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop < window.innerHeight - 100) {
-                    section.classList.add('visible');
+                } finally {
+                    // Remove loading state
+                    this.classList.remove('form-loading');
                 }
             });
-        });
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        if (mobileMenuBtn && navMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const navMenu = document.getElementById('navMenu');
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             
-            if (navMenu && mobileMenuBtn && 
-                !navMenu.contains(e.target) && 
-                !mobileMenuBtn.contains(e.target) && 
-                navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // Enhanced smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Calculate the scroll position, accounting for fixed header
-                    const headerOffset = 100;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+            // Legal Documents Navigation
+            const legalLinks = document.querySelectorAll('.legal-link');
+            const legalNavButtons = document.querySelectorAll('.legal-nav-btn');
+            const legalSection = document.getElementById('legal');
+            const backToHome = document.getElementById('back-to-home');
+            const mainSections = document.querySelectorAll('section:not(.legal-section)');
+            const footer = document.querySelector('footer');
+            const mainLogo = document.getElementById('main-logo');
+            
+            // Set current date for legal documents
+            const currentDate = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            document.getElementById('privacy-date').textContent = currentDate;
+            document.getElementById('terms-date').textContent = currentDate;
+            document.getElementById('cookie-date').textContent = currentDate;
+            
+            // Legal links click handler
+            legalLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showLegalSection();
                     
-                    // Close mobile menu if open
-                    if (navMenu.classList.contains('active')) {
-                        navMenu.classList.remove('active');
-                    }
-                }
-            });
-        });
-
-        // Handle direct navigation to sections from URL hash
-        window.addEventListener('load', function() {
-            // Animate sections on initial load
-            const sections = document.querySelectorAll('section');
-            sections.forEach((section, index) => {
-                setTimeout(() => {
-                    section.classList.add('visible');
-                }, index * 200);
+                    // Show the specific policy
+                    const policy = this.getAttribute('data-policy');
+                    showPolicy(policy);
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
             });
             
-            if (window.location.hash) {
-                // Wait for the page to fully load
-                setTimeout(() => {
-                    const targetId = window.location.hash;
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const headerOffset = 100;
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                }, 500);
-            }
-        });
-
-        // Micro-interaction: Add hover effect to skill items
-        const skillItems = document.querySelectorAll('.skill-list li');
-        skillItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.style.transform = 'translateX(5px)';
+            // Legal navigation buttons click handler (inside legal section)
+            legalNavButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Show the specific policy
+                    const policy = this.getAttribute('data-policy');
+                    showPolicy(policy);
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
             });
-            item.addEventListener('mouseleave', () => {
-                item.style.transform = 'translateX(0)';
+            
+            // Back to home button
+            backToHome.addEventListener('click', function(e) {
+                e.preventDefault();
+                hideLegalSection();
+            });
+            
+            // Main logo click handler
+            mainLogo.addEventListener('click', function(e) {
+                e.preventDefault();
+                hideLegalSection();
+            });
+            
+            // Function to show legal section
+            function showLegalSection() {
+                // Hide all main sections and footer
+                mainSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                footer.style.display = 'none';
+                
+                // Show legal section
+                legalSection.style.display = 'block';
+            }
+            
+            // Function to hide legal section
+            function hideLegalSection() {
+                // Hide legal section
+                legalSection.style.display = 'none';
+                
+                // Show all main sections and footer
+                mainSections.forEach(section => {
+                    section.style.display = 'block';
+                });
+                footer.style.display = 'block';
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+            
+            // Function to show specific policy
+            function showPolicy(policy) {
+                // Hide all policy sections
+                document.getElementById('privacy-policy').style.display = 'none';
+                document.getElementById('terms-conditions').style.display = 'none';
+                document.getElementById('cookie-policy').style.display = 'none';
+                
+                // Remove active class from all buttons
+                legalNavButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+                
+                // Show selected policy
+                if (policy === 'privacy') {
+                    document.getElementById('privacy-policy').style.display = 'block';
+                    document.querySelector('[data-policy="privacy"]').classList.add('active');
+                } else if (policy === 'terms') {
+                    document.getElementById('terms-conditions').style.display = 'block';
+                    document.querySelector('[data-policy="terms"]').classList.add('active');
+                } else if (policy === 'cookie') {
+                    document.getElementById('cookie-policy').style.display = 'block';
+                    document.querySelector('[data-policy="cookie"]').classList.add('active');
+                }
+            }
+            
+            // Back to top links
+            const backToTopLinks = document.querySelectorAll('.back-to-top');
+            backToTopLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // GSAP Animations
+            gsap.from('.hero-content h1', {
+                duration: 1,
+                y: 50,
+                opacity: 0,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.hero-content p', {
+                duration: 1,
+                y: 30,
+                opacity: 0,
+                delay: 0.3,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.hero-actions', {
+                duration: 1,
+                y: 30,
+                opacity: 0,
+                delay: 0.6,
+                ease: 'power3.out'
+            });
+            
+            gsap.from('.hero-stats', {
+                duration: 1,
+                y: 30,
+                opacity: 0,
+                delay: 0.9,
+                ease: 'power3.out'
+            });
+            
+            // Animate service cards on scroll
+            gsap.utils.toArray('.service-card').forEach(card => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 80%',
+                        end: 'bottom 20%',
+                        toggleActions: 'play none none reverse'
+                    },
+                    duration: 0.8,
+                    y: 50,
+                    opacity: 0,
+                    ease: 'power3.out'
+                });
+            });
+            
+            // Animate portfolio items on scroll
+            gsap.utils.toArray('.portfolio-item').forEach(item => {
+                gsap.from(item, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 80%',
+                        end: 'bottom 20%',
+                        toggleActions: 'play none none reverse'
+                    },
+                    duration: 0.8,
+                    y: 50,
+                    opacity: 0,
+                    ease: 'power3.out'
+                });
+            });
+            
+            // FASTER CONTACT ANIMATIONS (0.4s instead of 0.8s/1s)
+            // Animate contact form - faster (0.4s)
+            gsap.from('.contact-form', {
+                scrollTrigger: {
+                    trigger: '.contact-form',
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                },
+                duration: 0.4, // Changed from 1s to 0.4s
+                x: 50,
+                opacity: 0,
+                ease: 'power3.out'
+            });
+            
+            // Animate contact info - faster (0.4s)
+            gsap.from('.contact-info .contact-item', {
+                scrollTrigger: {
+                    trigger: '.contact-info',
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                },
+                duration: 0.4, // Changed from 0.8s to 0.4s
+                x: -50,
+                opacity: 0,
+                stagger: 0.1, // Also reduced stagger for even faster appearance
+                ease: 'power3.out'
             });
         });
     </script>
