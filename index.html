@@ -175,6 +175,7 @@
             font-weight: 700;
             font-size: 1.5rem;
             color: whitesmoke; /* Changed from primary blue to white */
+            cursor: pointer;
         }
 
         .nav-links {
@@ -884,6 +885,104 @@
             transform: translateY(0);
         }
 
+        /* Legal Pages */
+        .legal-section {
+            padding: 100px 0 50px;
+            background-color: white;
+            display: none;
+        }
+
+        .legal-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .legal-content h1 {
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .legal-content h2 {
+            color: var(--dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .legal-content h3 {
+            color: var(--dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-content p, .legal-content li {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .legal-content ul, .legal-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .legal-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-highlight {
+            background-color: #f8fafc;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            margin: 1.5rem 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .legal-note {
+            background-color: #fff9e6;
+            padding: 1.5rem;
+            border-left: 4px solid var(--warning);
+            margin: 1.5rem 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .back-to-top:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Legal Navigation */
+        .legal-navigation {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .legal-nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .back-to-home {
+            margin-left: auto;
+        }
+
         /* Accessibility */
         .sr-only {
             position: absolute;
@@ -1008,6 +1107,28 @@
             .social-links {
                 justify-content: center;
             }
+
+            .legal-content {
+                padding: 1rem;
+            }
+
+            .legal-navigation {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .legal-nav-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .back-to-home {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+                margin-top: 1rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1027,6 +1148,16 @@
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
+
+            .legal-nav-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .legal-nav-buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -1034,7 +1165,7 @@
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
-            <a href="#" class="logo">
+            <a href="#" class="logo" id="main-logo">
                 SwiftSite
             </a>
             
@@ -1459,6 +1590,210 @@
         </div>
     </section>
 
+    <!-- Legal Pages -->
+    <section id="legal" class="legal-section">
+        <div class="container">
+            <div class="legal-content">
+                <!-- Legal Navigation -->
+                <div class="legal-navigation">
+                    <div class="legal-nav-buttons">
+                        <a href="#privacy-policy" class="btn btn-secondary legal-nav-btn" data-policy="privacy">Privacy Policy</a>
+                        <a href="#terms-conditions" class="btn btn-secondary legal-nav-btn" data-policy="terms">Terms & Conditions</a>
+                        <a href="#cookie-policy" class="btn btn-secondary legal-nav-btn" data-policy="cookie">Cookie Policy</a>
+                    </div>
+                    <a href="#" class="btn btn-primary back-to-home" id="back-to-home">Back to Home</a>
+                </div>
+
+                <!-- Privacy Policy -->
+                <div id="privacy-policy" class="legal-document">
+                    <h1>Privacy Policy</h1>
+                    <div class="legal-highlight">
+                        <p><strong>Last Updated:</strong> <span id="privacy-date"></span></p>
+                    </div>
+                    
+                    <div class="legal-note">
+                        <p><strong>Note:</strong> This document is a summarized version of our legal policies. For the complete documents, please contact us at <strong>swiftsiteonline@gmail.com</strong> and we'll be happy to share them with you.</p>
+                    </div>
+                    
+                    <h2>Introduction</h2>
+                    <p>SwiftSite ("we," "us," "our") is committed to protecting your privacy. This policy describes how we collect, use, and share information when you visit our website or use our services. By accessing our site or engaging our services, you consent to the practices described herein.</p>
+                    <p>SwiftSite operates in Houston, Texas, and our Privacy Policy reflects U.S. law and the Texas Data Privacy and Security Act (effective July 2024) — although small-business exemptions apply. We <strong>do not sell</strong> your personal information. We use industry-standard technical and administrative safeguards to protect your data (e.g. secure SSL/TLS transmission, Prisma/Neon database on Google Cloud), but no system is 100% foolproof.</p>
+                    
+                    <h2>Information We Collect</h2>
+                    <p>We collect only what is necessary to provide our services.</p>
+                    
+                    <h3>Voluntary Information</h3>
+                    <p>When you contact us (for a quote or project), we collect identifying details such as your name, email address, phone number, company name, and project description. We may also collect business content you provide (text, images, logos, etc.) to build your site.</p>
+                    
+                    <h3>Automatically Collected Information</h3>
+                    <p>We gather technical data about your device and usage (your IP address, browser and operating system, pages viewed, and timestamps) via server logs and cookies. Cookies and similar tracking technologies help us understand site usage and improve functionality. For example, when we embed Google Maps or use Google APIs (for location or email), any information received from those APIs is handled according to Google's user data policies. We do not collect sensitive personal data like financial or health information.</p>
+                    
+                    <h2>How We Use Your Information</h2>
+                    <p>We use collected data for legitimate business purposes: to provide, operate, and maintain the SwiftSite website and the services we agree to perform. Specifically, we use your information to:</p>
+                    <ul>
+                        <li><strong>Deliver and manage services</strong> (e.g. build and launch your website)</li>
+                        <li><strong>Communicate with you</strong> (respond to inquiries, send project updates, or administrative notices)</li>
+                        <li><strong>Send marketing or promotional messages</strong> (only if you opt in — and you can opt-out any time)</li>
+                        <li><strong>Security and improvement purposes</strong> (for example, fraud prevention and to improve user experience)</li>
+                    </ul>
+                    <p>We will never use your information beyond the stated purposes.</p>
+                    
+                    <h2>Disclosure of Information</h2>
+                    <p>We share your information only as needed for our business operations and never sell it. We may disclose data to:</p>
+                    <ul>
+                        <li><strong>Service Providers:</strong> Trusted third-party vendors who assist with services such as website hosting, database and storage (e.g. Neon and Google Cloud), email delivery (e.g. Google Workspace, Mailchimp), analytics (e.g. Google Analytics), or customer support. These providers are contractually bound to keep your information confidential and use it only to deliver their services.</li>
+                        <li><strong>Business Transfers:</strong> In the event SwiftSite is merged, sold, or undergoes similar corporate changes, your information may be transferred to the new owner as part of the transaction.</li>
+                        <li><strong>Legal Obligations:</strong> We may release information if required by law, subpoena, or government request, or to protect our rights and safety (for example, in response to legal process).</li>
+                    </ul>
+                    <p>In all cases, we do <em>not</em> share or trade your personal data for marketing unless you explicitly consent.</p>
+                    
+                    <h2>Data Retention</h2>
+                    <p>We retain your personal information only as long as necessary to fulfill the purposes described (for example, the duration of your project and any required maintenance period) or to meet legal requirements. If we have no ongoing need, we will delete or anonymize your data. For instance, one local web company specifies that no purpose requires keeping data beyond two years. We follow a similar approach: once your project is complete and any legal/contractual obligations are met, we will delete or securely archive your personal data.</p>
+                    
+                    <h2>Your Rights</h2>
+                    <p>You have rights regarding your personal data under applicable law. Texas law grants rights to:</p>
+                    <ul>
+                        <li>Know what data we hold</li>
+                        <li>Access that data</li>
+                        <li>Correct inaccuracies</li>
+                        <li>Delete data we have about you</li>
+                        <li>Restrict or object to our processing of your data</li>
+                        <li>Opt-out of any sale of your data (We do <em>not</em> sell your data, so opt-out of sale is not applicable)</li>
+                    </ul>
+                    <p>You also have the right to withdraw any consent you previously gave (for example, to marketing emails) at any time. To exercise these rights or for private inquiries, contact us (see below). We will respond without undue delay, typically within 30–45 days as required by law.</p>
+                    
+                    <h2>Data Security</h2>
+                    <p>We employ administrative, technical, and physical security measures (encryption, firewalls, access controls) to protect your information. For example, SwiftSite's data is hosted on secure Google Cloud servers, and all data traffic is encrypted. However, we remind you that no Internet or electronic storage method is perfectly secure, and we cannot guarantee absolute security. While we strive to protect your data, transmitting personal information to us is at your own risk.</p>
+                    
+                    <h2>Children's Privacy</h2>
+                    <p>Our website and services are intended for businesses and are not directed at children. We do <em>not</em> knowingly collect or solicit personal data from anyone under the age of 13. If we learn that we have inadvertently collected information from a child under 13, we will promptly delete it.</p>
+                    
+                    <h2>Cookies and Tracking</h2>
+                    <p>We use cookies and similar technologies (like web beacons and analytics tools) to enhance site functionality and to understand site usage. Cookies help us remember user preferences and track visits to our site. You can disable cookies in your browser settings (though some site features may not work properly), and most browsers allow you to opt-out of targeted advertising.</p>
+                    
+                    <h2>Changes to This Privacy Policy</h2>
+                    <p>We may update this Privacy Policy from time to time. When we do, we will change the "Last Updated" date and post the new policy on our site. Material changes will be communicated (for example, via a banner notice or email if we have your address). We encourage you to review this policy periodically. Continued use of our services after changes are posted constitutes acceptance of the updated terms.</p>
+                    
+                    <h2>Contact Us</h2>
+                    <p>For any questions or to exercise your privacy rights, please contact us at <strong>swiftsiteonline@gmail.com</strong>. We will do our best to address your concerns in a timely manner.</p>
+                    
+                    <a href="#" class="back-to-top">Back to Top</a>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div id="terms-conditions" class="legal-document" style="display: none;">
+                    <h1>Terms and Conditions</h1>
+                    <div class="legal-highlight">
+                        <p><strong>Last Updated:</strong> <span id="terms-date"></span></p>
+                    </div>
+                    
+                    <div class="legal-note">
+                        <p><strong>Note:</strong> This document is a summarized version of our legal policies. For the complete documents, please contact us at <strong>swiftsiteonline@gmail.com</strong> and we'll be happy to share them with you.</p>
+                    </div>
+                    
+                    <h2>1. Agreement to Terms</h2>
+                    <p>By accessing or using the SwiftSite website and services ("Site" and "Services"), you agree to these Terms and Conditions and our Privacy Policy. If you do not agree, please do not use our Site or services. We may update these Terms at any time by posting revisions on the Site; changes take effect immediately upon posting.</p>
+                    
+                    <h2>2. Services</h2>
+                    <p>SwiftSite provides custom web design, development, hosting, and maintenance services to local businesses. A separate <strong>Project Agreement (Scope of Work)</strong> will define the specific details of each project (scope, timeline, deliverables, fees). This Privacy Policy and these general Terms govern all interactions, but the Project Agreement (when signed) sets the detailed obligations for that project.</p>
+                    
+                    <h2>3. Client Responsibilities</h2>
+                    <ul>
+                        <li><strong>Content and Materials:</strong> You must provide all necessary materials for your project (text, images, logos, etc.) in a timely manner and in the requested format. You guarantee that you have the legal right to use and publish any content you supply (for example, you own or have license to provide images or text). You agree to indemnify and hold SwiftSite harmless from any claims arising from content you provide.</li>
+                        <li><strong>Feedback and Approval:</strong> You agree to review work in a timely fashion and provide clear feedback. You will be responsible for the final approval of the website. If delays are caused by late feedback or unavailability of required information, the project timeline and fees may be adjusted.</li>
+                        <li><strong>Cooperation:</strong> You must cooperate with SwiftSite by communicating preferences and changes promptly during development and maintenance.</li>
+                    </ul>
+                    
+                    <h2>4. Fees and Payment</h2>
+                    <ul>
+                        <li><strong>Fees:</strong> Project fees will be quoted in a proposal and in U.S. Dollars. We typically require a non-refundable deposit (often 50%) to begin work. The remaining balance is due upon project completion, before website launch or delivery of final files.</li>
+                        <li><strong>Invoices:</strong> We will invoice you according to the agreed schedule. If any fees are late, we reserve the right to charge interest at 1.5% per month (or the maximum allowed by Texas law). SwiftSite does not process payments through the website; payments are made by invoice (credit card, bank transfer, etc.) as agreed.</li>
+                        <li><strong>Taxes:</strong> You are responsible for any applicable taxes or duties unless exempted by law.</li>
+                    </ul>
+                    
+                    <h2>5. Intellectual Property</h2>
+                    <ul>
+                        <li><strong>Your Content:</strong> You retain ownership of all content you provide (logos, text, images, etc.). We only use your content for purposes of building and delivering your project. You indemnify us if your content infringes others' rights.</li>
+                        <li><strong>Deliverables:</strong> Upon full payment, you own the final website design and code written specifically for your project, and SwiftSite grants you a perpetual license to use the delivered website for your business. We will deliver all project files and materials to you at completion.</li>
+                        <li><strong>Our Pre-existing Materials:</strong> SwiftSite retains ownership of any pre-existing intellectual property (such as frameworks, code libraries, templates, or tools) used in your project. We grant you a license to use those parts only as embedded in your delivered site. You may not copy or use our proprietary code outside this project.</li>
+                        <li><strong>Portfolio Rights:</strong> SwiftSite retains the right to display the completed project (including screenshots, descriptions, and your company name) in our portfolio and marketing materials.</li>
+                    </ul>
+                    
+                    <h2>6. Revisions and Approval</h2>
+                    <p>Your Project Agreement will specify the number of design revisions included. Any additional changes beyond the agreed number of revisions may incur extra charges. You are responsible for reviewing and approving each stage of work (design mockups, development builds, etc.) before proceeding. Once you give final written approval, the project is considered accepted.</p>
+                    
+                    <h2>7. Hosting and Maintenance</h2>
+                    <ul>
+                        <li><strong>Hosting:</strong> If we provide hosting as part of your project, we will host the website on our secured servers (e.g., Google Cloud) with an uptime commitment (typically 99.9%) and maintain backups of your site.</li>
+                        <li><strong>Maintenance:</strong> As part of a maintenance plan, SwiftSite will perform agreed-upon updates, security patches, and fixes within a reasonable timeframe. Emergency fixes may be made immediately or prioritized according to plan. Additional work (beyond the plan) will be billed separately. You are responsible for providing access credentials (FTP, CMS, etc.) for hosted sites.</li>
+                        <li><strong>Third-Party Accounts:</strong> Any third-party services needed for your site (e.g. domain registration, premium plugins, email service) are your responsibility. We can assist in setup, but you will need your own accounts and payments to those vendors.</li>
+                    </ul>
+                    
+                    <h2>8. Disclaimer of Warranties</h2>
+                    <p>YOUR USE OF THE SERVICES IS AT YOUR OWN RISK. SWIFTSITE PROVIDES THE SERVICES "AS IS" AND "AS AVAILABLE," WITHOUT ANY WARRANTY OF ANY KIND. To the fullest extent permitted by Texas law, SwiftSite disclaims all warranties, express or implied, including any implied warranties of merchantability or fitness for a particular purpose. We do not guarantee that the site will be error-free or uninterrupted, or that all content or functions will meet your requirements.</p>
+                    
+                    <h2>9. Limitation of Liability</h2>
+                    <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, SWIFTSITE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES (INCLUDING LOST PROFITS, DATA LOSS, OR BUSINESS INTERRUPTION) ARISING OUT OF OR IN CONNECTION WITH OUR SERVICES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. Our total liability for any claim related to these Terms or services shall not exceed the fees you paid us for the project. This limitation applies to all causes of action, including contract, tort, and warranty claims.</p>
+                    
+                    <h2>10. Indemnification</h2>
+                    <p>You agree to indemnify and hold SwiftSite and its officers, employees, and agents harmless from any claims, losses, liabilities, damages, or expenses (including attorney fees) arising out of your breach of these Terms or your use of our services. This includes any claim related to content you provided (for example, if a third-party claims copyright infringement) or any unlawful use of the delivered website by you.</p>
+                    
+                    <h2>11. Governing Law and Venue</h2>
+                    <p>These Terms and any related agreements are governed by the laws of the State of Texas (without regard to conflict-of-law principles). Any legal action or proceeding arising out of or related to these Terms shall be brought in state or federal courts in Harris County, Texas (Houston), and you consent to personal jurisdiction there.</p>
+                    
+                    <h2>12. Changes to Terms</h2>
+                    <p>SwiftSite reserves the right to modify these Terms at any time. Any changes will be effective immediately upon posting on our website. Your continued use of the Site or services after revisions are posted means you accept the new terms. We encourage you to review this page periodically.</p>
+                    
+                    <h2>13. Contact Information</h2>
+                    <p>For questions about these Terms or our services, please contact us at <strong>swiftsiteonline@gmail.com</strong>. We will use reasonable efforts to address your concerns.</p>
+                    
+                    <a href="#" class="back-to-top">Back to Top</a>
+                </div>
+
+                <!-- Cookie Policy -->
+                <div id="cookie-policy" class="legal-document" style="display: none;">
+                    <h1>Cookie Policy</h1>
+                    <div class="legal-highlight">
+                        <p><strong>Last Updated:</strong> <span id="cookie-date"></span></p>
+                    </div>
+                    
+                    <div class="legal-note">
+                        <p><strong>Note:</strong> This document is a summarized version of our legal policies. For the complete documents, please contact us at <strong>swiftsiteonline@gmail.com</strong> and we'll be happy to share them with you.</p>
+                    </div>
+                    
+                    <h2>1. What Are Cookies</h2>
+                    <p>Cookies are small text files that are placed on your computer or mobile device when you visit our website. They are widely used to make websites work more efficiently and provide information to the website owners.</p>
+                    
+                    <h2>2. How We Use Cookies</h2>
+                    <p>We use cookies for several purposes:</p>
+                    <ul>
+                        <li><strong>Essential Cookies:</strong> These are necessary for the website to function properly and cannot be switched off.</li>
+                        <li><strong>Analytics Cookies:</strong> These allow us to count visits and traffic sources so we can measure and improve the performance of our site.</li>
+                        <li><strong>Functional Cookies:</strong> These enable the website to provide enhanced functionality and personalization.</li>
+                        <li><strong>Marketing Cookies:</strong> These may be set through our site by our advertising partners to build a profile of your interests.</li>
+                    </ul>
+                    
+                    <h2>3. Types of Cookies We Use</h2>
+                    <p>We use both session cookies (which expire when you close your browser) and persistent cookies (which stay on your device for a set period of time or until you delete them).</p>
+                    
+                    <h2>4. Third-Party Cookies</h2>
+                    <p>In addition to our own cookies, we may also use various third-party cookies to report usage statistics of the website, deliver advertisements on and through the website, and so on.</p>
+                    
+                    <h2>5. Your Choices Regarding Cookies</h2>
+                    <p>You can set your browser to refuse all or some browser cookies, or to alert you when websites set or access cookies. If you disable or refuse cookies, please note that some parts of this website may become inaccessible or not function properly.</p>
+                    
+                    <h2>6. Changes to This Cookie Policy</h2>
+                    <p>We may update this Cookie Policy from time to time. We will notify you of any changes by posting the new Cookie Policy on this page and updating the "Last Updated" date.</p>
+                    
+                    <h2>7. Contact Us</h2>
+                    <p>If you have any questions about our use of cookies, please contact us at <strong>swiftsiteonline@gmail.com</strong>.</p>
+                    
+                    <a href="#" class="back-to-top">Back to Top</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1496,20 +1831,20 @@
                 <div class="footer-col">
                     <h3>Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">E-Commerce</a></li>
-                        <li><a href="#">SEO Optimization</a></li>
-                        <li><a href="#">Website Maintenance</a></li>
+                        <li><a href="#services">Web Design</a></li>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">E-Commerce</a></li>
+                        <li><a href="#services">SEO Optimization</a></li>
+                        <li><a href="#services">Website Maintenance</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
                     <h3>Legal</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#privacy-policy" class="legal-link" data-policy="privacy">Privacy Policy</a></li>
+                        <li><a href="#terms-conditions" class="legal-link" data-policy="terms">Terms & Conditions</a></li>
+                        <li><a href="#cookie-policy" class="legal-link" data-policy="cookie">Cookie Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -1530,7 +1865,7 @@
         gsap.registerPlugin(ScrollTrigger);
         
         document.addEventListener('DOMContentLoaded', function() {
-            // Mobile navigation toggle - Updated from Swift 4
+            // Mobile navigation toggle
             const mobileToggle = document.querySelector('.mobile-toggle');
             const navLinks = document.querySelector('.nav-links');
             const navLinksItems = document.querySelectorAll('.nav-links a');
@@ -1714,6 +2049,128 @@
                     // Remove loading state
                     this.classList.remove('form-loading');
                 }
+            });
+            
+            // Legal Documents Navigation
+            const legalLinks = document.querySelectorAll('.legal-link');
+            const legalNavButtons = document.querySelectorAll('.legal-nav-btn');
+            const legalSection = document.getElementById('legal');
+            const backToHome = document.getElementById('back-to-home');
+            const mainSections = document.querySelectorAll('section:not(.legal-section)');
+            const footer = document.querySelector('footer');
+            const mainLogo = document.getElementById('main-logo');
+            
+            // Set current date for legal documents
+            const currentDate = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            document.getElementById('privacy-date').textContent = currentDate;
+            document.getElementById('terms-date').textContent = currentDate;
+            document.getElementById('cookie-date').textContent = currentDate;
+            
+            // Legal links click handler
+            legalLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showLegalSection();
+                    
+                    // Show the specific policy
+                    const policy = this.getAttribute('data-policy');
+                    showPolicy(policy);
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // Legal navigation buttons click handler (inside legal section)
+            legalNavButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Show the specific policy
+                    const policy = this.getAttribute('data-policy');
+                    showPolicy(policy);
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // Back to home button
+            backToHome.addEventListener('click', function(e) {
+                e.preventDefault();
+                hideLegalSection();
+            });
+            
+            // Main logo click handler
+            mainLogo.addEventListener('click', function(e) {
+                e.preventDefault();
+                hideLegalSection();
+            });
+            
+            // Function to show legal section
+            function showLegalSection() {
+                // Hide all main sections and footer
+                mainSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                footer.style.display = 'none';
+                
+                // Show legal section
+                legalSection.style.display = 'block';
+            }
+            
+            // Function to hide legal section
+            function hideLegalSection() {
+                // Hide legal section
+                legalSection.style.display = 'none';
+                
+                // Show all main sections and footer
+                mainSections.forEach(section => {
+                    section.style.display = 'block';
+                });
+                footer.style.display = 'block';
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+            
+            // Function to show specific policy
+            function showPolicy(policy) {
+                // Hide all policy sections
+                document.getElementById('privacy-policy').style.display = 'none';
+                document.getElementById('terms-conditions').style.display = 'none';
+                document.getElementById('cookie-policy').style.display = 'none';
+                
+                // Remove active class from all buttons
+                legalNavButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+                
+                // Show selected policy
+                if (policy === 'privacy') {
+                    document.getElementById('privacy-policy').style.display = 'block';
+                    document.querySelector('[data-policy="privacy"]').classList.add('active');
+                } else if (policy === 'terms') {
+                    document.getElementById('terms-conditions').style.display = 'block';
+                    document.querySelector('[data-policy="terms"]').classList.add('active');
+                } else if (policy === 'cookie') {
+                    document.getElementById('cookie-policy').style.display = 'block';
+                    document.querySelector('[data-policy="cookie"]').classList.add('active');
+                }
+            }
+            
+            // Back to top links
+            const backToTopLinks = document.querySelectorAll('.back-to-top');
+            backToTopLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo(0, 0);
+                });
             });
             
             // GSAP Animations
