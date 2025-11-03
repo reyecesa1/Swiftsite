@@ -667,9 +667,10 @@
             border-radius: 0;
         }
 
-        /* NEW: Zoomed testimonial logo for C2C */
-        .testimonial-avatar.zoomed .testimonial-logo {
-            transform: scale(1.5); /* Zoom in the logo */
+        /* UPDATED: Fixed testimonial logo for Cold2Close */
+        .testimonial-avatar.fitted .testimonial-logo {
+            object-fit: contain;
+            padding: 5px;
         }
 
         .testimonial-content {
@@ -1413,23 +1414,23 @@
                     </div>
                 </div>
                 
-                <!-- NEW: Call Me business replacing Artisan Gems position -->
+                <!-- UPDATED: Cold2Close business -->
                 <div class="portfolio-item" data-category="web-design">
                     <div class="portfolio-img">
-                        <img src="call me.png" alt="Call Me Website">
+                        <img src="call me.png" alt="Cold2Close Website">
                     </div>
                     <div class="portfolio-content">
-                        <h3>Call Me</h3>
-                        <p>A modern website for a call service business with contact information and service details.</p>
+                        <h3>Cold2Close</h3>
+                        <p>A modern website for an AI cold calling agent service, providing lead outreach solutions for businesses.</p>
                         <div class="portfolio-tags">
                             <span class="tag">Web Design</span>
-                            <span class="tag">Service Business</span>
+                            <span class="tag">AI Service</span>
+                            <span class="tag">Lead Generation</span>
                         </div>
                         <a href="https://callme-website.vercel.app" target="_blank" class="portfolio-link">View Website →</a>
                     </div>
                 </div>
                 
-                <!-- MOVED: Artisan Gems is now last before the "Coming Soon" items -->
                 <div class="portfolio-item" data-category="ecommerce">
                     <div class="portfolio-img">
                         <img src="artisan.png" alt="Artisan Gems Website">
@@ -1446,7 +1447,7 @@
                     </div>
                 </div>
                 
-                <!-- Updated "Coming Soon" portfolio items with SwiftSiteLogo.jpg -->
+                <!-- UPDATED: Reduced to 2 "Coming Soon" boxes -->
                 <div class="portfolio-item" data-category="web-design">
                     <div class="portfolio-img">
                         <img src="SwiftSiteLogo.jpg" alt="Coming Soon Project">
@@ -1471,20 +1472,6 @@
                         <div class="portfolio-tags">
                             <span class="tag">E-Commerce</span>
                             <span class="tag">Payment Gateway</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="branding">
-                    <div class="portfolio-img">
-                        <img src="SwiftSiteLogo.jpg" alt="Coming Soon Project">
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Coming Soon..</h3>
-                        <p>A modern website is under current development.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Branding</span>
-                            <span class="tag">Web Design</span>
                         </div>
                     </div>
                 </div>
@@ -1529,16 +1516,16 @@
                     </div>
                     
                     <div class="testimonial-slide">
-                        <!-- UPDATED: Added zoomed class to C2C testimonial avatar -->
-                        <div class="testimonial-avatar zoomed">
-                            <img src="HC.png" alt="C2C Logo" class="testimonial-logo">
+                        <!-- UPDATED: Fixed Cold2Close testimonial avatar with fitted class -->
+                        <div class="testimonial-avatar fitted">
+                            <img src="HC.png" alt="Cold2Close Logo" class="testimonial-logo">
                         </div>
                         <div class="testimonial-content">
                             <p>"Our new website gave my cold calling business the professional front door it was missing. It instantly builds the credibility with prospects, so  I spend less time convincing and more time closing."</p>
                         </div>
                         <div class="testimonial-author">
                             <h4>Hanya A.</h4>
-                            <p class="testimonial-role">CEO, C2C, B2B Saas</p>
+                            <p class="testimonial-role">CEO, Cold2Close, AI Cold Calling Agent Service</p>
                         </div>
                     </div>
                 </div>
