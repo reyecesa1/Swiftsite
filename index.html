@@ -667,6 +667,11 @@
             border-radius: 0;
         }
 
+        /* NEW: Zoomed testimonial logo for C2C */
+        .testimonial-avatar.zoomed .testimonial-logo {
+            transform: scale(1.5); /* Zoom in the logo */
+        }
+
         .testimonial-content {
             max-width: 600px;
             margin-bottom: 1.5rem;
@@ -1408,6 +1413,23 @@
                     </div>
                 </div>
                 
+                <!-- NEW: Call Me business replacing Artisan Gems position -->
+                <div class="portfolio-item" data-category="web-design">
+                    <div class="portfolio-img">
+                        <img src="call me.png" alt="Call Me Website">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Call Me</h3>
+                        <p>A modern website for a call service business with contact information and service details.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Web Design</span>
+                            <span class="tag">Service Business</span>
+                        </div>
+                        <a href="https://callme-website.vercel.app" target="_blank" class="portfolio-link">View Website →</a>
+                    </div>
+                </div>
+                
+                <!-- MOVED: Artisan Gems is now last before the "Coming Soon" items -->
                 <div class="portfolio-item" data-category="ecommerce">
                     <div class="portfolio-img">
                         <img src="artisan.png" alt="Artisan Gems Website">
@@ -1507,7 +1529,8 @@
                     </div>
                     
                     <div class="testimonial-slide">
-                        <div class="testimonial-avatar">
+                        <!-- UPDATED: Added zoomed class to C2C testimonial avatar -->
+                        <div class="testimonial-avatar zoomed">
                             <img src="HC.png" alt="C2C Logo" class="testimonial-logo">
                         </div>
                         <div class="testimonial-content">
