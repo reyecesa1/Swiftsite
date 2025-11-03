@@ -620,7 +620,7 @@
             color: var(--primary-dark);
         }
 
-        /* Testimonials Section */
+        /* Testimonials Section - UPDATED WITH LOGO STYLING */
         .testimonials {
             background-color: white;
         }
@@ -669,6 +669,12 @@
 
         /* UPDATED: Fixed testimonial logo for Cold2Close */
         .testimonial-avatar.fitted .testimonial-logo {
+            object-fit: cover;
+            padding: 0;
+        }
+
+        /* UPDATED: Added specific styling for Medina logo */
+        .testimonial-avatar.medina .testimonial-logo {
             object-fit: contain;
             padding: 5px;
         }
@@ -1490,8 +1496,9 @@
             <div class="testimonial-slider">
                 <div class="testimonial-track">
                     <div class="testimonial-slide">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user"></i>
+                        <!-- UPDATED: Added Medina logo -->
+                        <div class="testimonial-avatar medina">
+                            <img src="medina logo.png" alt="Medina Tire Service Logo" class="testimonial-logo">
                         </div>
                         <div class="testimonial-content">
                             <p>"SwiftSite transformed our online presence completely. Our new website has increased our leads, discovery with Meta Tags and the design perfectly represents my brand. The team was professional, responsive, and delivered on time."</p>
@@ -1516,7 +1523,7 @@
                     </div>
                     
                     <div class="testimonial-slide">
-                        <!-- UPDATED: Fixed Cold2Close testimonial avatar with fitted class -->
+                        <!-- UPDATED: Fixed Cold2Close testimonial avatar with fitted class and increased size -->
                         <div class="testimonial-avatar fitted">
                             <img src="HC.png" alt="Cold2Close Logo" class="testimonial-logo">
                         </div>
